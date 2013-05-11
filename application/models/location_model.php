@@ -42,6 +42,7 @@ class Location_model extends CI_Model {
 		$this->db->where('ready_to_transfer.transfer_status',0);
 		$this->db->join('location','location.location_id=ready_to_transfer.location_id');
 		$this->db->join('the_case','the_case.case_id=ready_to_transfer.case_id');
+		$this->db->order_by('ready_to_transfer.location_id');
 		$query=$this->db->get('ready_to_transfer');
 		return $query->result();	
 	}
