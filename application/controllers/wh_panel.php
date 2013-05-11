@@ -126,4 +126,12 @@ class Wh_panel extends CI_Controller {
 		$data['query']=$this->location_model->get_need_transfer();
 		$this->load->view('wh_include/shipping',$data);
 	}
+	
+	function print_transfer_note()
+	{
+		$this->location_model->location_id=$this->input->post('location_id');
+		$this->location_model->shipping_note=$this->input->post('shipping_note');
+		$notes_id=$this->location_model->add_transfer_note();
+		$this->location_model->update_transfer_status($this->input->post('location_id'),$notes_id);
+	}
 }

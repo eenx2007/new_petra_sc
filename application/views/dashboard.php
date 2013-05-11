@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>RC Assistant V.0.7.4</title>
+<title>Service Center System for Petra V.1</title>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/reset.css"/>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/jquery/ui/flick/jquery.ui.all.css"/>

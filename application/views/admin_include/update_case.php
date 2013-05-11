@@ -259,7 +259,6 @@
     <div id="tabsnya" class="tabbed_area" style="width:90%;">
     	<ul class="tabs">
         	<li><a href="javascript:void(0);" gototab="#case_detail_tab" class="tab active">Case Detail</a></li>
-            <li><a href="javascript:void(0);" gototab="#component_detail" class="tab">&gt; RC</a></li>
             <li><a href="javascript:void(0);" gototab="#return_from_rc" class="tab">&lt RC</a></li>
             <li><a href="javascript:void(0);" gototab="#transfer_case_tab" class="tab">Transfer Case</a></li>
             <li><a href="javascript:void(0);" gototab="#part_in_case_tab" class="tab">Update Part diminta</a></li>
@@ -281,27 +280,7 @@
                 <tr><td colspan="2"><button id="update_case_detail">Update Detail</button></td></tr>
             </table>
         </div>
-        <div id="component_detail" class="content_tab">
-        	<table class="main_table">
-            	<tr>
-                	<td>Send to</td>
-                    <td>
-                    	<?php
-							$location_to=array();
-							$qlocation=$this->location_model->get_rc();
-							foreach($qlocation as $rowslocation)
-							{
-								$location_to[$rowslocation->location_id]=$rowslocation->location_name;	
-							}
-							echo form_dropdown('location_to',$location_to,'','id="location_to"');
-						?>
-                     </td>
-                    
-                    
-                </tr>
-                <tr><td colspan="2"><button id="trasnfer_rc">Transfer dan Cetak</button></td></tr>
-            </table>
-        </div>
+        
         <div id="return_from_rc" class="content_tab">
         	<table class="main_table">
             	<tr>

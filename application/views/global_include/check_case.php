@@ -53,7 +53,7 @@
                 <tr><td>Customer Name</td><td><input type="text" name="customer_name" id="customer_name" /></td></tr>
                 <tr><td>Phone</td><td><input type="text" name="phone_number" id="phone_number" /></td></tr>
                 <tr><td>Range</td><td><input type="text" name="start_date" id="start_date" style="width:30%;" value="from" /> <input type="text" name="end_date" id="end_date" style="width:30%;" value="to" /></td></tr>
-                <tr><td colspan="2"><button id="search_case">Cari</button></td></tr>
+                <tr><td colspan="2"><button id="search_case">Search</button></td></tr>
             </table>
         </div>
     </div>

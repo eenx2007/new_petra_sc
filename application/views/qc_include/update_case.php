@@ -181,11 +181,11 @@
         </div>
         <div id="force_update_tab" class="content_tab">
         	<table class="main_table">
-            	<tr><td colspan="2">Jika kamu yakin unit benar-benar selesai di cek</td></tr>
+            	<tr><td colspan="2">Make sure the unit is tested</td></tr>
                 <tr>
                 	<td>
 						<?php
-							$last_status=array('10'=>'Selesai di Cek','16'=>'Kembalikan ke Engineer');
+							$last_status=array('10'=>'Finish Check','16'=>'Re-Repair');
 							echo form_dropdown('last_status',$last_status,'','id="last_status"');
 						?>
                     </td>

@@ -211,8 +211,8 @@
         <div id="force_close" class="content_tab">
         	<table class="main_table">
             	<tr><td>Log Info</td><td><textarea name="ship_note" id="ship_note"></textarea></td></tr>
-                <tr><td>Status Baru</td><td><?php $new_status=array('12'=>'Sudah Diambil'); echo form_dropdown('new_status',$new_status,'','id="new_status"');?></td></tr>
-                <tr><td colspan="2"><button id="force_close_btn">Simpan</button></td></tr>
+                <tr><td>New Status</td><td><?php $new_status=array('12'=>'Close'); echo form_dropdown('new_status',$new_status,'','id="new_status"');?></td></tr>
+                <tr><td colspan="2"><button id="force_close_btn">Save</button></td></tr>
             </table>
         </div>
     </div>

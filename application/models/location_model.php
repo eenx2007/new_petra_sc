@@ -9,6 +9,10 @@ class Location_model extends CI_Model {
 	var $transfer_status='';
 	var $transfer_print_date='';
 	
+	var $transfer_note_id='';
+	var $transfer_note_date='';
+	var $shipping_note='';
+	
 	function get_all()
 	{
 		$this->db->order_by('location_id');
@@ -52,5 +56,24 @@ class Location_model extends CI_Model {
 		$this->db->set('case_id',$case_id);
 		$this->db->set('location_id',$location_id);
 		$this->db->insert('ready_to_transfer');	
+	}
+	
+	function add_transfer_note()
+	{
+		$this->db->set('transfer_note_date',time());
+		$this->db->set('location_id',$this->location_id);
+		$this->db->set('shipping_note',$this->shipping_note);
+		$this->db->insert('transfer_note');
+		return $this->db->insert_id();	
+	}
+	
+	function update_transfer_status($location_id,$transfer_note_id)
+	{
+		$this->db->where('location_id',$location_id);
+		$this->db->where('transfer_status',0);
+		$this->db->set('transfer_status',1);
+		$this->db->set('transfer_print_date',time());
+		$this->db->set('transfer_note_id',$transfer_note_id);
+		$this->db->update('ready_to_transfer');	
 	}
 }
