@@ -11,7 +11,6 @@ table.dataTable {
 table.dataTable thead th {
 	padding: 3px 18px 3px 10px;
 	border-bottom: 1px solid black;
-	border-top:3px solid #502FBD;;
 	font-weight: bold;
 	cursor: pointer;
 	*cursor: hand;
@@ -25,8 +24,6 @@ table.dataTable tfoot th {
 
 table.dataTable td {
 	padding: 3px 10px;
-	color:#240079;
-	font-size:11px;
 }
 
 table.dataTable td.center,
@@ -52,7 +49,6 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 	position: relative;
 	clear: both;
 	*zoom: 1;
-	
 }
 
 
@@ -61,12 +57,7 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
  */
 .dataTables_length {
 	float: left;
-	padding-left:10px;
-	padding-bottom:10px;
 }
-	.dataTables_length select{
-		width:auto;	
-	}
 
 
 /*
@@ -75,12 +66,7 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 .dataTables_filter {
 	float: right;
 	text-align: right;
-	padding-right:10px;
-	padding-bottom:10px;
 }
-	.dataTables_filter input{
-		width:auto;
-	}
 
 
 /*
@@ -89,8 +75,6 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 .dataTables_info {
 	clear: both;
 	float: left;
-	padding-left:10px;
-	padding-bottom:10px;
 }
 
 
@@ -100,7 +84,6 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 .dataTables_paginate {
 	float: right;
 	text-align: right;
-	color:#FFF;
 }
 
 /* Two button pagination - previous / next */
@@ -112,7 +95,7 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 	float: left;
 	cursor: pointer;
 	*cursor: hand;
-	color: #FFF !important;
+	color: #111 !important;
 }
 .paginate_disabled_previous:hover,
 .paginate_enabled_previous:hover,
@@ -218,7 +201,8 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 .sorting_asc_disabled { background: url('../images/sort_asc_disabled.png') no-repeat center right; }
 .sorting_desc_disabled { background: url('../images/sort_desc_disabled.png') no-repeat center right; }
  
-table.dataTable th:active {
+table.dataTable thead th:active,
+table.dataTable thead td:active {
 	outline: none;
 }
 

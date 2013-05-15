@@ -5,30 +5,34 @@
 <title>Service Center System for Petra V.1</title>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/reset.css"/>
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/jquery/ui/flick/jquery.ui.all.css"/>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/jquery/ui/flick/jquery.ui.core.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/jquery/ui/ui-lightness/jquery.ui.all.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/jquery/ui/ui-lightness/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/jquery/ui/ui-lightness/jquery.ui.core.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/jquery/datatables/media/css/jquery.dataTables.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/the_style.css?time=<?php echo time();?>"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/jquery/notycss/noty_theme_twitter.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/jquery/notycss/jquery.noty.css"/>
 
 
-<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/jquery-2.0.0.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/jquery-migrate-1.2.1.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/jquery/jquery.noty.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/tiny_mce/jquery.tinymce.js"></script>
 
-<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery-ui-1.8.20.custom.js"></script>
+
+<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery-ui.custom.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery.ui.core.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery.effects.core.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery.ui.effect.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery.ui.effect-fade.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery.ui.datepicker.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery.ui.draggable.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery.ui.resizable.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/jquery.mousewheel-2.0.0.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery.ui.position.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery.ui.draggable.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ui/jquery.ui.autocomplete.js"></script>
+
+<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/jquery.mousewheel-2.0.0.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/datatables/media/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/jquery/function_group.js"></script>
 </head>
 
