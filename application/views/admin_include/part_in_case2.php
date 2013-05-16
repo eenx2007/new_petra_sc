@@ -5,7 +5,7 @@
 			idnya=$(this).attr('idnya');
 			p_idnya=$('#proposal_id_hidden').val();
 			updatenya=3;
-			$.post('<?php echo site_url('admin_panel/update_part_status');?>',
+			$.post('<?php echo site_url('adminpanels/part_control/update_part_status');?>',
 				{
 					part_request_id:idnya,
 					request_status:updatenya,
@@ -13,8 +13,8 @@
 				},
 				function(data)
 				{
-					$('#part_in_case_tab').load('<?php echo site_url('admin_panel/part_in_case2');?>/'+c_id);
-					$('#detail_proposal_update').load('<?php echo site_url('admin_panel/det_proposal_update');?>/'+p_idnya);
+					$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case2');?>/'+c_id);
+					$('#detail_proposal_update').load('<?php echo site_url('adminpanels/proposal_control/det_proposal_update');?>/'+p_idnya);
 				}
 			);
 		});
@@ -22,14 +22,14 @@
 			c_id=$('#case_id').val();
 			idnya=$(this).attr('idnya');
 			updatenya=7;
-			$.post('<?php echo site_url('admin_panel/update_part_status');?>',
+			$.post('<?php echo site_url('adminpanels/part_control/update_part_status');?>',
 				{
 					part_request_id:idnya,
 					request_status:updatenya	
 				},
 				function(data)
 				{
-					$('#part_in_case_tab').load('<?php echo site_url('admin_panel/part_in_case2');?>/'+c_id);
+					$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case2');?>/'+c_id);
 				}
 			);
 		});

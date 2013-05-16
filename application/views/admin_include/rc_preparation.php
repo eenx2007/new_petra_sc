@@ -4,14 +4,14 @@
 			c_id=$(this).attr('case_idnya');
 			l_id=$('#location_id_'+c_id).val();
 	
-			$.post('<?php echo site_url('admin_panel/rc_process');?>',
+			$.post('<?php echo site_url('adminpanels/location_control/rc_process');?>',
 				{
 					case_id:c_id,
 					location_id:l_id	
 				},
 				function(data)
 				{
-					$('.scrolling_item').load('<?php echo site_url('admin_panel/rc_preparation');?>');
+					$('.scrolling_item').load('<?php echo site_url('adminpanels/location_control/rc_preparation');?>');
 				}
 			);
 		});

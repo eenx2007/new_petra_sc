@@ -103,7 +103,7 @@
 										textnya=data;
 										if(sess_user_type==2)
 										{
-											notification_alert_stop(textnya,'<?php echo site_url('admin_panel/case_today');?>','Case Today','Assign Case');
+											notification_alert_stop(textnya,'<?php echo site_url('adminpanels/case_control/case_today');?>','Case Today','Assign Case');
 										}
 										else
 										{
@@ -144,7 +144,7 @@
 							last_modif_repair_complete=data.last_modif_repair_complete;
 							new_repair_complete=data.new_repair_complete;
 							$('#repair_complete_menu_db .long_menu_full_text').html(new_repair_complete+' case(s)');
-							overscreen_alert(data.new_rc_text,'<?php echo site_url('admin_panel/repair_complete_db');?>','Check it');
+							overscreen_alert(data.new_rc_text,'<?php echo site_url('adminpanels/case_control/repair_complete_db');?>','Check it');
 						}
 					}
 				}
@@ -179,7 +179,7 @@
 			var new_repair_complete=0;
 			$('#repair_complete_menu_db').click(function(){
 				$('.over_screen').html('').show();
-				$('.over_screen').load('<?php echo site_url('admin_panel/repair_complete_db');?>');
+				$('.over_screen').load('<?php echo site_url('adminpanels/case_control/repair_complete_db');?>');
 			});
 		}
 		else if(sess_user_type==5)
@@ -196,7 +196,7 @@
 			var new_repair_complete=0;
 			$('#repair_complete_menu_db').click(function(){
 				$('.over_screen').html('').show();
-				$('.over_screen').load('<?php echo site_url('admin_panel/repair_complete_db');?>');
+				$('.over_screen').load('<?php echo site_url('adminpanels/case_control/repair_complete_db');?>');
 			});
 			$('#under_testing_menu_db').click(function(){
 				$('.over_screen').html('').show();

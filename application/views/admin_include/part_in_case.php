@@ -5,7 +5,7 @@
 			$('.css_ref_update_form').each(function(){
 				rp_id=$(this).attr('idnya');
 				ref_number=$(this).val();
-				$.post('<?php echo site_url('admin_panel/update_ref');?>',
+				$.post('<?php echo site_url('adminpanels/part_control/update_ref');?>',
 					{
 						part_request_id:rp_id,
 						css_ref:ref_number,
@@ -14,7 +14,7 @@
 					},
 					function(data)
 					{
-						$('#part_in_case_tab').load('<?php echo site_url('admin_panel/part_in_case');?>/'+c_id);
+						$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case');?>/'+c_id);
 					}
 				);
             });
@@ -22,7 +22,7 @@
 		$('.update_request_this').click(function(){
 			rp_id=$(this).attr('idnya');
 			ref_number=$('#ref_num_' + rp_id).val();
-			$.post('<?php echo site_url('admin_panel/update_ref');?>',
+			$.post('<?php echo site_url('adminpanels/part_control/update_ref');?>',
 				{
 					part_request_id:rp_id,
 					css_ref:ref_number,
@@ -31,7 +31,7 @@
 				},
 				function(data)
 				{
-					$('#part_in_case_tab').load('<?php echo site_url('admin_panel/part_in_case');?>/'+c_id);
+					$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case');?>/'+c_id);
 				}
 			);
 		});
@@ -41,13 +41,13 @@
 			var answer = confirm('Delete it?');
 			if (answer)
 			{
-			 	$.post('<?php echo site_url('admin_panel/delete_request');?>',
+			 	$.post('<?php echo site_url('adminpanels/part_control/delete_request');?>',
 			  		{
 						part_request_id:pr_id
 					},
 					function(data)
 					{
-			  			$('#part_in_case_tab').load('<?php echo site_url('admin_panel/part_in_case');?>/'+c_id);
+			  			$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case');?>/'+c_id);
 					}
 			   	);
 			}
@@ -56,7 +56,7 @@
 		$('#create_proposal').click(function(){
 			c_id=$('#case_id').val();
 			$('.over_screen').html('<img src="<?php echo base_url();?>assets/images/please_wait.png" />').show();
-			$('.over_screen').load('<?php echo site_url('admin_panel/create_proposal');?>/'+c_id);
+			$('.over_screen').load('<?php echo site_url('adminpanels/proposal_control/create_proposal');?>/'+c_id);
 		});
 	});
 </script>

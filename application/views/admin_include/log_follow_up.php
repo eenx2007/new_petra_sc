@@ -8,7 +8,7 @@
 			var answer = confirm('Are you sure you have done with this item?');
 			if (answer)
 			{
-			 	$.post('<?php echo site_url('admin_panel/log_follow_up');?>',
+			 	$.post('<?php echo site_url('adminpanels/case_control/log_follow_up');?>',
 			  		{
 						case_log_id:log_id
 					},

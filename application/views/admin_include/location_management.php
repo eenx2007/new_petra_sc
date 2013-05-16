@@ -5,7 +5,7 @@
 			$('#search_panel').hide();
 			location_id=$('#location_id').val();
 			$('#search_result').show();
-			$('#search_result').load('<?php echo site_url('admin_panel/location_detail_item');?>?location_id='+location_id);
+			$('#search_result').load('<?php echo site_url('adminpanels/location_control/location_detail_item');?>?location_id='+location_id);
 		});
     });
 </script>

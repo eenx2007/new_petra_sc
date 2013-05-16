@@ -14,7 +14,7 @@
 		$('#export_to_xls').click(function(){
 			s_date=encodeURIComponent('<?php echo $start_date;?>');
 			e_date=encodeURIComponent('<?php echo $end_date;?>');
-			window.open('<?php echo site_url('admin_panel/case_out_etx');?>?start_date='+s_date+'&end_date='+e_date);
+			window.open('<?php echo site_url('adminpanels/report_control/case_out_etx');?>?start_date='+s_date+'&end_date='+e_date);
 		});
 	});
 </script>

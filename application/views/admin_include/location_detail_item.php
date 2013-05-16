@@ -14,7 +14,7 @@
 		);
 		$('.update_casenya').click(function(){
 			c_id=$(this).attr('idnya');
-			$('.scrolling_item').load('<?php echo site_url('admin_panel/update_case');?>/'+c_id);
+			$('.scrolling_item').load('<?php echo site_url('adminpanels/case_control/update_case');?>/'+c_id);
 		});
     });
 </script>

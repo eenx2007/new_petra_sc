@@ -12,7 +12,7 @@
 			n_stat=1;
 			eng=$('#engineer_'+c_idnya).val();
 			symnya=$('#symptom_'+c_idnya).val();
-			$.post('<?php echo site_url('admin_panel/assign_case');?>',
+			$.post('<?php echo site_url('adminpanels/case_control/assign_case');?>',
 				{
 					case_id:c_idnya,
 					case_status:n_stat,
@@ -22,7 +22,7 @@
 				},
 				function(data)
 				{
-					$('.scrolling_item').load('<?php echo site_url('admin_panel/case_today');?>');
+					$('.scrolling_item').load('<?php echo site_url('adminpanels/case_control/case_today');?>');
 				}
 			);
 		});
@@ -42,7 +42,7 @@
 				n_stat=1;
 				eng=$('#engineer_'+c_idnya).val();
 				symnya=$('#symptom_'+c_idnya).val();
-				$.post('<?php echo site_url('admin_panel/assign_case');?>',
+				$.post('<?php echo site_url('adminpanels/case_control/assign_case');?>',
 					{
 						case_id:c_idnya,
 						case_status:n_stat,
@@ -52,7 +52,7 @@
 					},
 					function(data)
 					{
-						$('.scrolling_item').load('<?php echo site_url('admin_panel/case_today');?>');
+						$('.scrolling_item').load('<?php echo site_url('adminpanels/case_control/case_today');?>');
 					}
 				);
             });

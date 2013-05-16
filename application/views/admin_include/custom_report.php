@@ -36,7 +36,7 @@
 			s_date=encodeURIComponent($('#start_date').val());
 			e_date=encodeURIComponent($('#end_date').val());
 			report_type=$('#report_type').val();
-			$('#report_result_place').load('<?php echo site_url('admin_panel/generate_custom_report');?>/?start_date='+s_date+'&end_date='+e_date+'&report_type='+report_type);
+			$('#report_result_place').load('<?php echo site_url('adminpanels/report_control/generate_custom_report');?>/?start_date='+s_date+'&end_date='+e_date+'&report_type='+report_type);
 		});
 	});
 </script>

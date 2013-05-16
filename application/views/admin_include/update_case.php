@@ -14,7 +14,7 @@
 			c_id=$('#case_id').val();
 			q_update=$('#quick_update').val();
 			u_notes=$('#update_notes').val();
-			$.post('<?php echo site_url('admin_panel/quick_update');?>',
+			$.post('<?php echo site_url('adminpanels/case_control/quick_update');?>',
 				{
 					case_id:c_id,
 					quick_update:q_update,
@@ -59,7 +59,7 @@
 						$('#component_detailnya').attr('src',data.comp_detail);
 						$('#symptom').val(data.symptom);
 						$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/'+c_id);
-						$('#part_in_case_tab').load('<?php echo site_url('admin_panel/part_in_case');?>/'+c_id);
+						$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case');?>/'+c_id);
 					}
 				},
 				'json'
@@ -94,7 +94,7 @@
 						$('#component_detailnya').attr('src',data.comp_detail);
 						$('#symptom').val(data.symptom);
 						$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/'+c_id);
-						$('#part_in_case_tab').load('<?php echo site_url('admin_panel/part_in_case');?>/'+c_id);
+						$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case');?>/'+c_id);
 					}
 				},
 				'json'
@@ -141,7 +141,7 @@
 			);
 		});
 		$('#back_to_pending').click(function(){
-			$('.scrolling_item').load('<?php echo site_url('admin_panel/pending_management');?>#tombol_<?php echo $case_id;?>');
+			$('.scrolling_item').load('<?php echo site_url('adminpanels/case_control/pending_management');?>#tombol_<?php echo $case_id;?>');
 		});
 		
 		$('#update_case_detail').click(function(){
@@ -151,7 +151,7 @@
 			sn=$('#serial_number_text').val();
 			u_type=$('#unit_type_text').val();
 			c_type=$('#case_type_text').val();
-			$.post('<?php echo site_url('admin_panel/update_case_detail');?>',
+			$.post('<?php echo site_url('adminpanels/case_control/update_case_detail');?>',
 				{
 					case_id:c_id,
 					customer_name:c_name,
@@ -170,7 +170,7 @@
 		$('#trasnfer_rc').click(function(){
 			l_id=$('#location_to').val();
 			c_id=$('#case_id').val();
-			$.post('<?php echo site_url('admin_panel/transfer_rc');?>',
+			$.post('<?php echo site_url('adminpanels/location_control/transfer_rc');?>',
 				{
 					case_id:c_id,
 					location_id:l_id,
@@ -181,7 +181,7 @@
 					message_alert('Case Transferred to RC!');	
 					var windowSizeArray = [ "width=200,height=200",
 													"width=300,height=400,scrollbars=yes" ];
-					var url = '<?php echo site_url('admin_panel/print_transfer');?>/'+c_id+'/'+l_id;
+					var url = '<?php echo site_url('adminpanels/report_control/print_transfer');?>/'+c_id+'/'+l_id;
 					var windowName = "popUp";//$(this).attr("name");
 					var windowSize = windowSizeArray[$(this).attr("rel")];
 					
@@ -193,7 +193,7 @@
 		$('#transfer_engineer').click(function(){
 			c_id=$('#case_id').val();
 			a_to=$('#engineer_trans').val();
-			$.post('<?php echo site_url('admin_panel/transfer_case');?>',
+			$.post('<?php echo site_url('adminpanels/case_control/transfer_case');?>',
 				{
 					case_id:c_id,
 					assign_to:a_to	
@@ -207,7 +207,7 @@
 		
 		$('#under_testing_rc').click(function(){
 			c_id=$('#case_id').val();
-			$.post('<?php echo site_url('admin_panel/under_testing_rc');?>',
+			$.post('<?php echo site_url('adminpanels/location_control/under_testing_rc');?>',
 				{
 					case_id:c_id,
 					user_id:sess_user_id

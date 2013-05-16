@@ -71,14 +71,15 @@
     <?php echo $this->global_model->menu_item('part_sale.png','Part Sale',site_url('cso/part_by_me'));?>
     <?php echo $this->global_model->menu_item('today_statistic.png','Statistic',site_url('cso/today_statistic'));?>
 <?php elseif($this->session->userdata('user_type')==2): ?>
-	<?php echo $this->global_model->menu_item('update_case.png','Update Case',site_url('admin_panel/update_case/0'));?>
-    <?php echo $this->global_model->menu_item('new_case.png','Assigning',site_url('admin_panel/case_today'));?>
-    <?php echo $this->global_model->menu_item('marker.png','Unit Location',site_url('admin_panel/location_management'));?>
-	<?php echo $this->global_model->menu_item('awaiting_part.png','RC Preparation',site_url('admin_panel/rc_preparation'));?>
-    <?php echo $this->global_model->menu_item('resolving_today.png','Finish Case',site_url('admin_panel/resolving_today'));?>           
-    <?php echo $this->global_model->menu_item('pending.png','Pending',site_url('admin_panel/pending_management'));?>
-    <?php echo $this->global_model->menu_item('export_out.png','Export Data',site_url('admin_panel/export_case_out_data'));?>
-    <?php echo $this->global_model->menu_item('custom_report.png','Reporting',site_url('admin_panel/custom_report'));?>
+	<?php echo $this->global_model->menu_item('update_case.png','Update Case',site_url('adminpanels/case_control/update_case/0'));?>
+    <?php echo $this->global_model->menu_item('new_case.png','Assigning',site_url('adminpanels/case_control/case_today'));?>
+    <?php echo $this->global_model->menu_item('marker.png','Unit Location',site_url('adminpanels/location_control/location_management'));?>
+	<?php echo $this->global_model->menu_item('awaiting_part.png','RC Preparation',site_url('adminpanels/location_control/rc_preparation'));?>
+    <?php echo $this->global_model->menu_item('resolving_today.png','Finish Case',site_url('adminpanels/case_control/resolving_today'));?>           
+    <?php echo $this->global_model->menu_item('pending.png','Pending',site_url('adminpanels/case_control/pending_management'));?>
+    <?php echo $this->global_model->menu_item('export_out.png','Export Data',site_url('adminpanels/report_control/export_case_out_data'));?>
+    <?php echo $this->global_model->menu_item('custom_report.png','Reporting',site_url('adminpanels/report_control/custom_report'));?>
+    <?php echo $this->global_model->menu_item('buy_part.png','Buy Purt',site_url('admin_panel/buy_purt'));?>
 <?php elseif($this->session->userdata('user_type')==3): ?>
     <?php echo $this->global_model->menu_item('pending.png','Pending!',site_url('engineer/pending_management'));?>
 <?php elseif($this->session->userdata('user_type')==4): ?>
@@ -86,13 +87,13 @@
     <?php echo $this->global_model->menu_item('part_sale.png','Part for Sale',site_url('wh_panel/part_sale'));?>
     <?php echo $this->global_model->menu_item('awaiting_part.png','Part In',site_url('wh_panel/part_in'));?>
     <?php echo $this->global_model->menu_item('consumed_part.png','Part Enquiry',site_url('wh_panel/consumed_part'));?>
-    <?php echo $this->global_model->menu_item('marker.png','Unit Location',site_url('admin_panel/location_management'));?>
+    <?php echo $this->global_model->menu_item('marker.png','Unit Location',site_url('adminpanels/location_control/location_management'));?>
     <?php echo $this->global_model->menu_item('no_defective_part.png','Shipping',site_url('wh_panel/shipping'));?>
 <?php elseif($this->session->userdata('user_type')==5): ?>
-	<?php echo $this->global_model->menu_item('new_case.png','Assigning',site_url('admin_panel/case_today'));?>
+	<?php echo $this->global_model->menu_item('new_case.png','Assigning',site_url('adminpanels/case_control/case_today'));?>
 	<?php echo $this->global_model->menu_item('update_case.png','Update Case',site_url('qc_panel/update_case'));?>
     <?php echo $this->global_model->menu_item('under_testing.png','Under Testing',site_url('qc_panel/under_testing_case'));?>
-    <?php echo $this->global_model->menu_item('pending.png','Pending!',site_url('admin_panel/pending_management'));?>
+    <?php echo $this->global_model->menu_item('pending.png','Pending!',site_url('adminpanels/case_control/pending_management'));?>
 <?php elseif($this->session->userdata('user_type')==0): ?>
 	
 <?php elseif($this->session->userdata('user_type')==6):?>

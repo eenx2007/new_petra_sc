@@ -2,7 +2,7 @@
 	$(document).ready(function(){
 		// When a link is clicked
 		$('#tabsnya').hide(); 
-		$('#list_repair_complete').load('<?php echo site_url('admin_panel/repair_complete_admin');?>');
+		$('#list_repair_complete').load('<?php echo site_url('adminpanels/case_control/repair_complete_admin');?>');
 		$('.active').each(function(){
 			content_show=$(this).attr("gototab");
 			$(content_show).show();
@@ -34,7 +34,7 @@
 						$('#case_status_text').val(data.case_status);
 						$('#creator_text').val(data.creator);
 						$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/'+c_id);
-						$('#part_in_case_tab').load('<?php echo site_url('admin_panel/part_in_case2');?>/'+c_id);
+						$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case2');?>/'+c_id);
 					}
 				},
 				'json'
@@ -65,7 +65,7 @@
 			reason=$('#resolved_reason').val();
 			new_status=$('#new_status').val();
 			r_notes=$('#resolving_notes').val();
-			$.post('<?php echo site_url('admin_panel/force_update');?>',
+			$.post('<?php echo site_url('adminpanels/case_control/force_update');?>',
 				{
 					case_id:c_id,
 					resolved_reason:reason,
@@ -83,7 +83,7 @@
 		
 		$('#create_proposal').click(function(){
 			c_id=$('#case_id').val();
-			$('#create_proposal_tab').load('<?php echo site_url('admin_panel/create_proposal');?>/'+c_id);
+			$('#create_proposal_tab').load('<?php echo site_url('adminpanels/proposal_control/create_proposal');?>/'+c_id);
 		});
 	});
 </script>

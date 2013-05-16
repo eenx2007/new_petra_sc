@@ -34,7 +34,7 @@
 			s_date=encodeURIComponent($('#start_date').val());
 			e_date=encodeURIComponent($('#end_date').val());
 			$('#search_panel').hide();
-			$('#search_result').load('<?php echo site_url('admin_panel/case_out_query');?>?start_date='+s_date+'&end_date='+e_date);
+			$('#search_result').load('<?php echo site_url('adminpanels/report_control/case_out_query');?>?start_date='+s_date+'&end_date='+e_date);
 		});
 	});
 </script>
