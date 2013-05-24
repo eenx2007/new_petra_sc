@@ -8,7 +8,7 @@
 		<?php if($case_id==0): ?>
 			$('#search_case').click(function(){
 				c_id=$('#case_id').val();
-				$.post('<?php echo site_url('engineer/search_case');?>',
+				$.post('<?php echo site_url('engineers/case_control/search_case');?>',
 					{
 						case_id:c_id
 					},
@@ -31,8 +31,8 @@
 							$('#case_status_text').val(data.case_status);
 							$('#creator_text').val(data.creator);
 							$('#component_detailnya').attr('src',data.comp_detail);
-							$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/'+c_id);
-							$('#part_in_case_tab').load('<?php echo site_url('engineer/part_in_case');?>/'+c_id);
+							$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
+							$('#part_in_case_tab').load('<?php echo site_url('engineers/part_control/part_in_case');?>/'+c_id);
 						}
 					},
 					'json'
@@ -41,7 +41,7 @@
 		<?php else: ?>
 			c_id='<?php echo $case_id;?>';
 			$('#case_id').val(c_id);
-				$.post('<?php echo site_url('engineer/search_case');?>',
+				$.post('<?php echo site_url('engineers/case_control/search_case');?>',
 					{
 						case_id:c_id
 					},
@@ -65,8 +65,8 @@
 							$('#creator_text').val(data.creator);
 							$('#component_detailnya').attr('src',data.comp_detail);
 							$('#case_problem_text').val(data.case_problem);
-							$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/'+c_id);
-							$('#part_in_case_tab').load('<?php echo site_url('engineer/part_in_case');?>/'+c_id);
+							$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
+							$('#part_in_case_tab').load('<?php echo site_url('engineers/part_control/part_in_case');?>/'+c_id);
 						}
 					},
 					'json'
@@ -78,7 +78,7 @@
 			p_sn=$('#bad_part_sn').val();
 			oem=$('#oem_part_sn').val();
 			c_id=$('#case_id_text').val();
-			$.post('<?php echo site_url('engineer/request_part');?>',
+			$.post('<?php echo site_url('engineers/part_control/request_part');?>',
 				{
 					part_number:pn,
 					bad_part_sn:p_sn,
@@ -92,8 +92,8 @@
 					$('#part_number').val('');
 					$('#bad_part_sn').val('');
 					$('#oem_part_sn').val('');
-					$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/'+c_id);
-					$('#part_in_case_tab').load('<?php echo site_url('engineer/part_in_case');?>/'+c_id);
+					$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
+					$('#part_in_case_tab').load('<?php echo site_url('engineers/part_control/part_in_case');?>/'+c_id);
 				},
 				'json'
 			);
@@ -125,7 +125,7 @@
 		$('#force_update').click(function(){
 			c_id=$('#case_id').val();
 			u_status=$('#last_status').val();
-			$.post('<?php echo site_url('engineer/force_update');?>',
+			$.post('<?php echo site_url('engineers/case_control/force_update');?>',
 				{
 					case_id:c_id,
 					update_status:u_status,
@@ -139,13 +139,13 @@
 				}
 			);
 		});
-		$('#pending_right_content').load('<?php echo site_url('engineer/pending_right');?>/'+sess_user_id);
+		$('#pending_right_content').load('<?php echo site_url('engineers/case_control/pending_right');?>/'+sess_user_id);
 		
 		$('#submit_log').click(function(){
 			n_l_entry=$('#new_log_entry').val();
 			l_type=$('#log_type').val();
 			c_id=$('#case_id_text').val();
-			$.post('<?php echo site_url('engineer/update_log');?>',
+			$.post('<?php echo site_url('engineers/case_control/update_log');?>',
 				{
 					new_log_entry:n_l_entry,
 					log_type:l_type,
@@ -158,7 +158,7 @@
 					$('#new_log_entry').val('');
 					$('#log_type').val(0)
 					
-					$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/'+c_id);
+					$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
 				}
 			);
 		});

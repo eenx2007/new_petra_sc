@@ -108,7 +108,7 @@ class Global_model extends CI_Model {
 		elseif($case_status==1)
 			$statusnya="Under Repair";
 		elseif($case_status==2)
-			$statusnya="Waiting Admin update";
+			$statusnya="Waiting Customer Approval";
 		elseif($case_status==3)
 			$statusnya="Part to Engineer";
 		elseif($case_status==4)

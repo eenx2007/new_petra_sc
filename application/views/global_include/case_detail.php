@@ -1,8 +1,8 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		
-		$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/<?php echo $row->case_id;?>');
-		$('#part_in_case_tab').load('<?php echo site_url('engineer/part_in_case');?>/<?php echo $row->case_id;?>');
+		$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/<?php echo $row->case_id;?>');
+		$('#part_in_case_tab').load('<?php echo site_url('engineers/part_control/part_in_case');?>/<?php echo $row->case_id;?>');
 		// When a link is clicked 
 		$('.active').each(function(){
 			content_show=$(this).attr("gototab");
@@ -34,7 +34,7 @@
 			c_id=$('#case_id_text').val();
 			var windowSizeArray = [ "width=200,height=200",
 											"width=300,height=400,scrollbars=yes" ];
-					var url = '<?php echo site_url('cso/print_srf');?>/'+c_id;
+					var url = '<?php echo site_url('csos/report_control/print_srf');?>/'+c_id;
 					var windowName = "popUp";//$(this).attr("name");
 					var windowSize = windowSizeArray[$(this).attr("rel")];
 					

@@ -3,7 +3,7 @@
         $('.update_case').click(function(){
 			c_id=$(this).attr('idnya');
 
-			menu_item_click('<?php echo site_url('qc_panel/update_case');?>/'+c_id,'Update Case');
+			menu_item_click('<?php echo site_url('qcpanels/case_control/update_case');?>/'+c_id,'Update Case');
 			$('.over_screen').hide();
 		});
 		

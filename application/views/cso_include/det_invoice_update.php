@@ -4,7 +4,7 @@
 			p_idnya=$('#proposal_id_hidden').val();
 			var windowSizeArray = [ "width=200,height=200",
 													"width=300,height=400,scrollbars=yes" ];
-			var url = '<?php echo site_url('cso/print_invoice');?>/'+p_idnya;
+			var url = '<?php echo site_url('csos/report_control/print_invoice');?>/'+p_idnya;
 			var windowName = "popUp";//$(this).attr("name");
 			var windowSize = windowSizeArray[$(this).attr("rel")];
 			

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
 <file name="awaiting_part_db.php" server="//10.119.100.11/rc_assistant/" local="129833564410000014" remote="129833564410000000" />
-<file name="consumed_part_db.php" server="//10.119.100.11/rc_assistant/" local="129833566632324312" remote="129833566630000000" />
 <file name="incoming_part.php" server="//10.119.100.11/rc_assistant/" local="129824076742060406" remote="129824076740000000" />
 <file name="need_to_be_issued.php" server="//10.119.100.11/rc_assistant/" local="129824076410310289" remote="129824076410000000" />
 <file name="no_defective_part_db.php" server="//10.119.100.11/rc_assistant/" local="129828636296625674" remote="129828636290000000" />
@@ -14,5 +13,4 @@
 <file name="part_sale.php" server="//ACSCSMRG07/rc_assistant/" local="129842945295743774" remote="129842945290000000" />
 <file name="awaiting_part_db.php" server="//ACSCSMRG07/rc_assistant/" local="129842625800917013" remote="129842625800000000" />
 <file name="issued_to_fd.php" server="//ACSCSMRG07/rc_assistant/" local="129842634490639027" remote="129842634490000000" />
-<file name="consumed_part_db.php" server="//192.168.11.23/xampp/htdocs/new_petra_sc/" local="130118697854075037" remote="130118697850000000" />
 </dwsync>

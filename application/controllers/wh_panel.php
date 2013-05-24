@@ -34,11 +34,7 @@ class Wh_panel extends CI_Controller {
 		$this->load->view('wh_include/awaiting_part_db',$data);	
 	}
 	
-	function consumed_part()
-	{
-		$data['queryreq']=$this->the_part_model->get_stock();
-		$this->load->view('wh_include/consumed_part_db',$data);	
-	}
+	
 	
 	function no_defective_part()
 	{

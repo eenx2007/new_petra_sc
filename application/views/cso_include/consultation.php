@@ -3,7 +3,7 @@
 		start_timenya='<?php echo time();?>';
         $('#save_consultation').click(function(){
 			c_notes=$('#consultation_notes').val();
-			$.post('<?php echo site_url('cso/save_consultation');?>',
+			$.post('<?php echo site_url('csos/case_control/save_consultation');?>',
 				{
 					consultation_notes:c_notes,
 					start_time:start_timenya,
@@ -21,7 +21,7 @@
 		
 		$('#cancel_consultation').click(function(){
 			clearTimeout(perulangan);
-			$('.scrolling_content').load('<?php echo site_url('cso/cancel_case');?>');
+			$('.scrolling_content').load('<?php echo site_url('csos/case_control/cancel_case');?>');
 			back_to_dashboard();
 		});
     });

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Qc_panel extends CI_Controller {
+class Case_control extends CI_Controller {
 	
 	function qc_repair_complete_db()
 	{
@@ -32,4 +32,5 @@ class Qc_panel extends CI_Controller {
 		$this->case_model->case_log_activity=$logact;
 		$this->case_model->update_log($this->input->post('case_id'),$this->input->post('user_id'));
 	}
+	
 }

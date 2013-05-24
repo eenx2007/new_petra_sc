@@ -5,7 +5,7 @@
 		<?php if($case_id==0): ?>
         $('#search_case').click(function(){
 			c_id=$('#case_id').val();
-			$.post('<?php echo site_url('engineer/search_case');?>',
+			$.post('<?php echo site_url('engineers/case_control/search_case');?>',
 				{
 					case_id:c_id
 				},
@@ -27,8 +27,8 @@
 						$('#case_type_text').val(data.case_type);
 						$('#case_status_text').val(data.case_status);
 						$('#creator_text').val(data.creator);
-						$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/'+c_id);
-						$('#part_in_case_tab').load('<?php echo site_url('engineer/part_in_case');?>/'+c_id);
+						$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
+						$('#part_in_case_tab').load('<?php echo site_url('engineers/part_control/part_in_case');?>/'+c_id);
 					}
 				},
 				'json'
@@ -37,7 +37,7 @@
 		<?php else: ?>
 			c_id='<?php echo $case_id;?>';
 			$('#case_id').val(c_id);
-			$.post('<?php echo site_url('engineer/search_case');?>',
+			$.post('<?php echo site_url('engineers/case_control/search_case');?>',
 				{
 					case_id:c_id
 				},
@@ -59,8 +59,8 @@
 						$('#case_type_text').val(data.case_type);
 						$('#case_status_text').val(data.case_status);
 						$('#creator_text').val(data.creator);
-						$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/'+c_id);
-						$('#part_in_case_tab').load('<?php echo site_url('engineer/part_in_case');?>/'+c_id);
+						$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
+						$('#part_in_case_tab').load('<?php echo site_url('engineers/part_control/part_in_case');?>/'+c_id);
 					}
 				},
 				'json'
@@ -92,7 +92,7 @@
 		$('#force_update').click(function(){
 			c_id=$('#case_id').val();
 			u_status=$('#last_status').val();
-			$.post('<?php echo site_url('qc_panel/force_update');?>',
+			$.post('<?php echo site_url('qcpanels/case_control/force_update');?>',
 				{
 					case_id:c_id,
 					update_status:u_status,
@@ -110,7 +110,7 @@
 			n_l_entry=$('#new_log_entry').val();
 			l_type=$('#log_type').val();
 			c_id=$('#case_id_text').val();
-			$.post('<?php echo site_url('engineer/update_log');?>',
+			$.post('<?php echo site_url('engineers/case_control/update_log');?>',
 				{
 					new_log_entry:n_l_entry,
 					log_type:l_type,
@@ -123,7 +123,7 @@
 					$('#new_log_entry').val('');
 					$('#log_type').val(0)
 					
-					$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/'+c_id);
+					$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
 				}
 			);
 		});

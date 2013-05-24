@@ -11,7 +11,7 @@
 		
 		$('#search_case').click(function(){
 			c_id=$('#case_id').val();
-			$.post('<?php echo site_url('engineer/search_case');?>',
+			$.post('<?php echo site_url('engineers/case_control/search_case');?>',
 				{
 					case_id:c_id
 				},
@@ -36,7 +36,7 @@
 						$('#case_type_text').val(data.case_type);
 						$('#case_status_text').val(data.case_status);
 						$('#creator_text').val(data.creator);
-						$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/'+c_id);
+						$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
 						$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case2');?>/'+c_id);
 					}
 				},
@@ -64,7 +64,7 @@
 			c_id=$('#case_id').val();
 			new_status=$('#new_status').val();
 			ship_note=$('#ship_note').val();
-			$.post('<?php echo site_url('cso/force_close');?>',
+			$.post('<?php echo site_url('csos/case_control/force_close');?>',
 				{
 					case_id:c_id,
 					case_status:new_status,
@@ -84,7 +84,7 @@
 		
 		$('#submit_old_style').click(function(){
 			notes=$('#old_style_notes').val();
-			$.post('<?php echo site_url('cso/save_old_style');?>',
+			$.post('<?php echo site_url('csos/case_control/save_old_style');?>',
 				{
 					old_style_notes:notes,
 					user_id:sess_user_id,
@@ -100,13 +100,13 @@
 		
 		$('#cancel_search').click(function(){
 			clearTimeout(perulangan);
-			$('.scrolling_content').load('<?php echo site_url('cso/cancel_case');?>');
+			$('.scrolling_content').load('<?php echo site_url('csos/case_control/cancel_case');?>');
 			back_to_dashboard();
 		});
 		
 		$('#generate_invoice').click(function(){
 			c_id=$('#case_id_text').val();
-			$('#invoice_tab').load('<?php echo site_url('cso/generate_invoice');?>/'+c_id);
+			$('#invoice_tab').load('<?php echo site_url('csos/invoice_control/generate_invoice');?>/'+c_id);
 		});
 	});
 	if(perulangan!="nothing")

@@ -68,19 +68,13 @@
         </div>
         <div class="dashboard_item_content" style="clear:both;">
             <table class="main_table">
-                <tr><th>No</th><th>Case ID</th><th>Type</th><th>Problem</th><th>Serial Number</th><th>Customer Name</th><th>Unit Type</th><th>Cust Info</th><th>Assign to</th><th>OK</th></tr>
+                <tr><th>No</th><th>Case ID</th><th>Type</th><th>Serial Number</th><th>Customer Name</th><th>Unit Type</th><th>Cust Info</th><th>Assign to</th><th>OK</th></tr>
                 <?php $i=0; foreach($query as $rows): $i++; ?>
-                    <tr title="<?php echo $rows->case_problem;?>" class="trnyaubah">
+                    <tr title="<?php echo $rows->completeness;?>" class="trnyaubah">
                         <td><?php echo $i;?></td>
                         <td><?php echo $rows->case_id;?></td>
                         <td><?php echo $this->global_model->get_case_type($rows->case_type);?></td>
-                        <td>
-                        	<?php if($rows->symptom==''):?>
-	                        	<input type="text" name="symptom_<?php echo $rows->case_id;?>" id="symptom_<?php echo $rows->case_id;?>" class="symptom_list" />
-                            <?php else: ?>
-                            	<?php echo $rows->symptom;?>
-                            <?php endif;?>
-                        </td>
+                        
                         <td><?php echo $rows->serial_number;?></td>
                         <td><?php echo $rows->customer_name;?></td>
                         <td><?php echo $rows->unit_type;?></td>

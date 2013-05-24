@@ -3,7 +3,7 @@
         $('.update_ref').click(function(){
 			pr_id=$(this).attr('idnya');
 			c_ref=$('#css_ref_'+pr_id).val();
-			$.post('<?php echo site_url('cso/update_css_ref');?>',
+			$.post('<?php echo site_url('csos/part_control/update_css_ref');?>',
 				{
 					part_request_id:pr_id,
 					css_ref:c_ref

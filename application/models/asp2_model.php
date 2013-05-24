@@ -13,6 +13,16 @@ class Asp2_model extends CI_Model {
 	var $pic='';
 	var $NOU='';
 	
+	function add_new_price()
+	{
+		$this->db->set('TYPE',$this->TYPE);
+		$this->db->set('PARTNO',$this->PARTNO);
+		$this->db->set('PARTNAME',$this->PARTNAME);
+		$this->db->set('PRICE_DEA',$this->PRICE_DEA);
+		$this->db->set('PRICE_END',$this->PRICE_END);
+		$this->db->insert('asp2');
+	}
+	
 	function search_by_model($search_key)
 	{
 		$this->db->like('partname',$search_key);

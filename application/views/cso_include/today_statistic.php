@@ -3,7 +3,7 @@
 		$('#detail_activity').hide();
 		$('.detail_activity').click(function(){
 			c_a_id=$(this).attr('idnya');
-			$('#detailnya').load('<?php echo site_url('cso/detail_activity');?>/'+c_a_id);
+			$('#detailnya').load('<?php echo site_url('csos/report_control/detail_activity');?>/'+c_a_id);
 			
 			$('#detail_activity').center().show().animate({"left": "+=25px"});
 		});

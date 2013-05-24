@@ -13,7 +13,7 @@
 		);
 		$('.to_update_case').click(function(){
 			c_id=$(this).attr('case_idnya');
-			menu_item_click('<?php echo site_url('engineer/update_case');?>/'+c_id,'Update Case');
+			menu_item_click('<?php echo site_url('engineers/case_control/update_case');?>/'+c_id,'Update Case');
 		});
 		
     });

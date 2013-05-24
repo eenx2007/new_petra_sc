@@ -10,7 +10,7 @@
 		
 		$('#search_case').click(function(){
 			c_id=$('#case_id').val();
-			$.post('<?php echo site_url('engineer/search_case');?>',
+			$.post('<?php echo site_url('engineers/case_control/search_case');?>',
 				{
 					case_id:c_id
 				},
@@ -33,7 +33,7 @@
 						$('#case_type_text').val(data.case_type);
 						$('#case_status_text').val(data.case_status);
 						$('#creator_text').val(data.creator);
-						$('#log_details').load('<?php echo site_url('engineer/get_case_log');?>/'+c_id);
+						$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
 						$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case2');?>/'+c_id);
 					}
 				},

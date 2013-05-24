@@ -17,7 +17,7 @@
 			cplt=$('#completeness').val();
 			c_problem=$('#case_problem').val();
 			rmrks=$('#remarks').val()
-			$.post('<?php echo site_url('cso/save_case');?>',
+			$.post('<?php echo site_url('csos/case_control/save_case');?>',
 				{
 					serial_number:s_number,
 					customer_name:c_name,
@@ -37,7 +37,7 @@
 					clearTimeout(perulangan);
 					var windowSizeArray = [ "width=200,height=200",
 											"width=300,height=400,scrollbars=yes" ];
-					var url = '<?php echo site_url('cso/print_srf');?>/'+data.case_id;
+					var url = '<?php echo site_url('csos/report_control/print_srf');?>/'+data.case_id;
 					var windowName = "popUp";//$(this).attr("name");
 					var windowSize = windowSizeArray[$(this).attr("rel")];
 					
@@ -51,7 +51,7 @@
 		
 		$('#cancel_case').click(function(){
 			clearTimeout(perulangan);
-			$('.scrolling_content').load('<?php echo site_url('cso/cancel_case');?>');
+			$('.scrolling_content').load('<?php echo site_url('csos/case_control/cancel_case');?>');
 			back_to_dashboard();	
 		});
     });
@@ -101,7 +101,7 @@
         	<table class="main_table">
             	<tr><td>Serial Number</td><td><input type="text" name="serial_number" id="serial_number" style="width:90%;" /></td></tr>
                 <tr><td>Unit Type</td><td><input type="text" name="unit_type" id="unit_type" style="width:90%;" /></td></tr>
-                <tr><td>Case Type</td><td><?php $case_type=array('0'=>'Garansi','1'=>'Tidak Garansi'); echo form_dropdown('case_type',$case_type,'','id="case_type"');?></td></tr>
+                <tr><td>Case Type</td><td><?php $case_type=array('0'=>'Warranty','1'=>'Out of Warranty'); echo form_dropdown('case_type',$case_type,'','id="case_type"');?></td></tr>
                 <tr><td>Completeness</td><td><textarea name="completeness" id="completeness" style="width:90%;height:100px;"></textarea></td></tr>
                 <tr><td>Problem</td><td><textarea name="case_problem" id="case_problem" style="width:90%;"></textarea></td></tr>
                 <tr><td>Additional Info</td><td><input type="text" name="remarks" id="remarks" style="width:90%;" /></td></tr>

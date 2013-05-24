@@ -134,7 +134,7 @@
 							last_modif_under_testing=data.last_modif_under_testing;
 							new_under_testing=data.new_total_ut;
 							$('#under_testing_menu_db .long_menu_full_text').html(new_under_testing+' case(s)');
-							overscreen_alert(data.new_ut_text,'<?php echo site_url('qc_panel/qc_repair_complete_db');?>','Check it');
+							overscreen_alert(data.new_ut_text,'<?php echo site_url('qcpanels/case_control/qc_repair_complete_db');?>','Check it');
 						}
 					}
 					if(sess_user_type==2)
@@ -187,7 +187,7 @@
 			var new_under_testing=0;
 			$('#under_testing_menu_db').click(function(){
 				$('.over_screen').html('').show();
-				$('.over_screen').load('<?php echo site_url('qc_panel/qc_repair_complete_db');?>');
+				$('.over_screen').load('<?php echo site_url('qcpanels/case_control/qc_repair_complete_db');?>');
 			});
 		}
 		else if(sess_user_type==0)
@@ -200,7 +200,7 @@
 			});
 			$('#under_testing_menu_db').click(function(){
 				$('.over_screen').html('').show();
-				$('.over_screen').load('<?php echo site_url('qc_panel/qc_repair_complete_db');?>');
+				$('.over_screen').load('<?php echo site_url('qcpanels/case_control/qc_repair_complete_db');?>');
 			});
 		}
 			

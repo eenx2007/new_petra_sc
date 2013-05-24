@@ -2,7 +2,7 @@
 	$(document).ready(function() {
         $('.to_update_case').click(function(){
 			c_id=$(this).attr('case_idnya');
-			$('.scrolling_item').load('<?php echo site_url('engineer/update_case');?>/'+c_id);
+			$('.scrolling_item').load('<?php echo site_url('engineers/case_control/update_case');?>/'+c_id);
 		});
 		
     });

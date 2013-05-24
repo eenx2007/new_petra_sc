@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('global_model','case_model','cso_activity_model','part_request_model','asp2_model','messaging_model','customer_model','location_model','the_part_model','proposal_model');
+$autoload['model'] = array('global_model','case_model','cso_activity_model','part_request_model','asp2_model','messaging_model','customer_model','location_model','the_part_model','proposal_model','transaction_model');
 
 
 /* End of file autoload.php */

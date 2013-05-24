@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	$(document).ready(function(e) {
         
-		$('#detail_proposal_update').load('<?php echo site_url('cso/det_proposal_update');?>/<?php echo $proposal_id;?>');
+		$('#detail_proposal_update').load('<?php echo site_url('csos/invoice_control/det_proposal_update');?>/<?php echo $proposal_id;?>');
 		
     });
 </script>

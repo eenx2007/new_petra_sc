@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Cso extends CI_Controller {
+class Case_control extends CI_Controller {
 
 	function new_case()
 	{
@@ -18,11 +18,6 @@ class Cso extends CI_Controller {
 	}
 	
 	function cancel_case()
-	{
-		$this->session->unset_userdata('start_time');	
-	}
-	
-	function cancel_consultation()
 	{
 		$this->session->unset_userdata('start_time');	
 	}
@@ -66,14 +61,6 @@ class Cso extends CI_Controller {
 		
 	}
 	
-	function print_srf($case_id)
-	{
-		$this->load->library('pdf');
-		$data['row']=$this->case_model->get_by_case_id($case_id);
-		$filepdf=$this->load->view('cso_include/srf',$data,TRUE);
-		$this->pdf->pdf_create($filepdf,'Service Request Form');
-	}
-	
 	function collection()
 	{
 		$waktu=time();
@@ -108,6 +95,11 @@ class Cso extends CI_Controller {
 		write_file('./db_cache/fd_activity.txt','Non RC Case Closed by '.$this->session->userdata('sure_name'));
 	}
 	
+	function cancel_consultation()
+	{
+		$this->session->unset_userdata('start_time');	
+	}
+	
 	function consultation()
 	{
 		$waktu=time();
@@ -126,69 +118,17 @@ class Cso extends CI_Controller {
 		write_file('./db_cache/fd_activity.txt','Consultation - '.$this->input->post('consultation_notes').' oleh '.$this->session->userdata('sure_name'));
 	}
 	
-	function today_statistic($user_id)
+	function pending_quotation()
 	{
-		$data['query']=$this->cso_activity_model->get_today_by_user($user_id);
-		$this->load->view('cso_include/today_statistic',$data);
+		$data['query']=$this->case_model->get_by_status(2);	
+		$this->load->view('cso_include/pending_quotation',$data);
 	}
 	
-	function detail_activity($c_a_id)
+	function update_case($case_id=0)
 	{
-		$this->db->where('cso_activity_id',$c_a_id);
-		$query=$this->db->get('cso_activity');
-		$row=$query->row();
-		if($row->activity_type==0)
-		{
-			$row2=$this->case_model->get_by_case_id($row->activity_ref);
-			echo '<table class="main_table">';
-			echo '<tr><td>Case ID</td><td>'.$row->activity_ref.'</td></tr>';
-			echo '<tr><td>Serial Number</<td><td>'.$row2->serial_number.'</td></tr>';
-			echo '</table>';
-		}
-		else
-		{
-			echo '<table class="main_table"><tr><td>'.$row->activity_ref.'</td></tr></table>';	
-		}
+		$data['case_id']=$case_id;
+		$data['queryreq']=$this->part_request_model->get_all();
+		$this->load->view('cso_include/update_case',$data);	
 	}
 	
-	function part_by_me($user_id)
-	{
-		$data['query']=$this->part_request_model->get_by_me($user_id);
-		$this->load->view('cso_include/part_by_me',$data);
-		
-	}
-	
-	function update_css_ref()
-	{
-		$this->db->set('css_ref',$this->input->post('css_ref'));
-		$this->db->where('part_request_id',$this->input->post('part_request_id'));
-		$this->db->update('part_request');
-		write_file('./db_cache/fd_activity.txt','Part Sale Code Number G'.$this->input->post('part_request_id').' Closed by '.$this->session->userdata('sure_name'));
-	}
-	
-	function generate_invoice($case_id)
-	{
-		$check_proposal=$this->proposal_model->get_by_id($case_id);
-		$data['proposal_id']=$check_proposal;
-		$this->load->view('cso_include/get_invoice',$data);
-	}
-	
-	function det_proposal_update($proposal_id)
-	{
-		$data['query']=$this->proposal_model->get_by_proposal($proposal_id);
-		$data['query2']=$this->proposal_model->get_by_proposal2($proposal_id);
-		$this->load->view('cso_include/det_invoice_update',$data);	
-	}
-	
-	function print_invoice($proposal_id)
-	{
-		$this->load->library('pdf');
-		$check_proposal=$proposal_id;
-		$data['proposal_id']=$check_proposal;
-		$data['query']=$this->proposal_model->get_by_proposal($check_proposal);
-		$data['query2']=$this->proposal_model->get_by_proposal2($check_proposal);
-		//$this->load->view('cso_include/invoice',$data);
-		$filepdf=$this->load->view('cso_include/invoice',$data,TRUE);
-		$this->pdf->pdf_create($filepdf,'Service Request Form');	
-	}
 }

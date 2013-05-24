@@ -225,6 +225,7 @@ class Case_model extends CI_Model {
 	{
 		$this->db->where('the_case.case_status',$case_status);
 		$this->db->join('user','user.user_id=the_case.creator');
+		$this->db->join('customer','customer.customer_id=the_case.customer_id');
 		$query=$this->db->get('the_case');
 		if($present<>"none")
 			return $query->num_rows;
