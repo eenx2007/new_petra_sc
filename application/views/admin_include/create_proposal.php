@@ -19,7 +19,7 @@
     });
 </script>
 <table class="main_table">
-	<tr><td>Nomor Proposal P-<?php echo $proposal_id;?></td></tr>
+	<tr><td>Proposal Number P-<?php echo $proposal_id;?></td></tr>
 </table>
 <table class="main_table">
 	<tr><td>Add Item</td><td><input type="text" id="part_sale_add" /></td><td><button id="add_part_sale">OK</button></td></tr>

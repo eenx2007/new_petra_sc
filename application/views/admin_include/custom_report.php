@@ -50,7 +50,7 @@
                 	<td>Report Type</td>
                     <td>
                     	<?php
-							$report_type=array('0'=>'Case In vs Case Out','1'=>'SLA Achievement','3'=>'Engineer Productivity','4'=>'FD Activity');
+							$report_type=array('0'=>'Case In vs Case Out','1'=>'Finance Report');
 							echo form_dropdown('report_type',$report_type,'','id="report_type"');
 						?>
                     </td>

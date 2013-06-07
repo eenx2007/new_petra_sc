@@ -80,6 +80,7 @@
     <?php echo $this->global_model->menu_item('pending.png','Pending',site_url('adminpanels/case_control/pending_management'));?>
     <?php echo $this->global_model->menu_item('export_out.png','Export Data',site_url('adminpanels/report_control/export_case_out_data'));?>
     <?php echo $this->global_model->menu_item('custom_report.png','Reporting',site_url('adminpanels/report_control/custom_report'));?>
+    <?php echo $this->global_model->menu_item('part_sale.png','Master Pricing',site_url('adminpanels/report_control/master_pricing'));?>
 <?php elseif($this->session->userdata('user_type')==3): ?>
     <?php echo $this->global_model->menu_item('pending.png','Pending!',site_url('engineers/case_control/pending_management'));?>
 <?php elseif($this->session->userdata('user_type')==4): ?>
@@ -90,6 +91,7 @@
     <?php echo $this->global_model->menu_item('consumed_part.png','Part Enquiry',site_url('whpanels/part_control/part_enquiry'));?>
     <?php echo $this->global_model->menu_item('marker.png','Unit Location',site_url('adminpanels/location_control/location_management'));?>
     <?php echo $this->global_model->menu_item('no_defective_part.png','Shipping',site_url('wh_panel/shipping'));?>
+    <?php echo $this->global_model->menu_item('export_out.png','Master Part',site_url('whpanels/part_control/master_part'));?>
 <?php elseif($this->session->userdata('user_type')==5): ?>
 	<?php echo $this->global_model->menu_item('new_case.png','Assigning',site_url('adminpanels/case_control/case_today'));?>
 	<?php echo $this->global_model->menu_item('update_case.png','Update Case',site_url('qcpanels/case_control/update_case'));?>

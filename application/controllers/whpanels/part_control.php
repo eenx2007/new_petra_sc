@@ -49,6 +49,16 @@ class Part_control extends CI_Controller {
 		
 	}
 	
+	function save_new_part()
+	{
+		$this->the_part_model->part_number=$this->input->post('part_number');
+		$this->the_part_model->part_name=$this->input->post('part_name');
+		$this->the_part_model->part_type=$this->input->post('part_type');
+		$this->the_part_model->save_new_part();
+		
+		$this->the_part_model->stock_in($this->input->post('part_number'),'8001',0,0);	
+	}
+	
 	function received()
 	{
 		$this->the_part_model->receive_part($this->input->post('part_order_id'));
@@ -76,6 +86,18 @@ class Part_control extends CI_Controller {
 			echo json_encode($kembali);
 			
 		}
+	}
+	
+	function master_part()
+	{
+		
+		$this->load->view('wh_include/master_part');
+	}
+	
+	function recorded_part()
+	{
+		$data['query']=$this->the_part_model->get_all();
+		$this->load->view('wh_include/recorded_part',$data);
 	}
 	
 }

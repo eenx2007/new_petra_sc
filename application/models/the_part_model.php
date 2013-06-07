@@ -75,6 +75,20 @@ class The_part_model extends CI_Model {
 		return $query->result();
 	}
 	
+	function get_all_stock()
+	{
+		$this->db->join('the_part','the_stock.part_number=the_part.part_number');
+		$query=$this->db->get('the_stock');	
+		return $query->result();
+	}
+	
+	function set_new_price($the_stock_id,$stoc_sell_price)
+	{
+		$this->db->set('stock_sell_price',$stoc_sell_price);
+		$this->db->where('the_stock_id',$the_stock_id);
+		$this->db->update('the_stock');
+	}
+	
 	function get_by_pn($part_number)
 	{
 		$this->db->where('the_part.part_number',$part_number);

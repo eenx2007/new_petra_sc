@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Location_control extends CI_Controller {
+class Report_control extends CI_Controller {
 
 	function export_case_out_data()
 	{
@@ -40,10 +40,10 @@ class Location_control extends CI_Controller {
 		{
 			
 		}
-		elseif($report_type==4)
+		elseif($report_type==1)
 		{
-			$data['query']=$this->cso_activity_model->get_by_date($start_date,$end_date);	
-			$this->load->view('admin_include/fd_activity',$data);
+			$data['query']=$this->transaction_model->get_by_date($start_date,$end_date);
+			$this->load->view('admin_include/transaction_list',$data);
 		}
 	}
 	
@@ -57,6 +57,17 @@ class Location_control extends CI_Controller {
 		$data['row_location']=$this->location_model->get_by_id($location_id);
 		$filepdf=$this->load->view('admin_include/print_transfer',$data,TRUE);	
 		$this->pdf->pdf_create($filepdf,'Service Request Form');
+	}
+	
+	function master_pricing()
+	{
+		$data['query']=$this->the_part_model->get_all_stock();
+		$this->load->view('admin_include/master_pricing',$data);	
+	}
+	
+	function set_new_price()
+	{
+		$this->the_part_model->set_new_price($this->input->post('the_stock_id'),$this->input->post('stock_sell_price'));	
 	}
 	
 }

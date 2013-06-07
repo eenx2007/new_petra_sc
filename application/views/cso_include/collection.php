@@ -106,7 +106,7 @@
 		
 		$('#generate_invoice').click(function(){
 			c_id=$('#case_id_text').val();
-			$('#invoice_tab').load('<?php echo site_url('csos/invoice_control/generate_invoice');?>/'+c_id);
+			$('#invoice_tab').load('<?php echo site_url('csos/invoice_control/generate_invoice');?>/'+c_id+'/'+sess_user_id);
 		});
 	});
 	if(perulangan!="nothing")
@@ -191,7 +191,7 @@
         	
         </div>
         <div id="invoice_tab" class="content_tab">
-        	<button id="generate_invoice">Generati Invoice</button>
+        	<button id="generate_invoice">Generate Invoice</button>
         </div>
         <div id="log_info_tab" class="content_tab">
         	<table class="main_table">

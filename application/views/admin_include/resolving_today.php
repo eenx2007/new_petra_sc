@@ -111,7 +111,7 @@
     <div id="tabsnya" class="tabbed_area" style="width:90%;">
     	<ul class="tabs">
         	<li><a href="javascript:void(0);" gototab="#case_detail_tab" class="tab active">Detail</a></li>
-            <li><a href="javascript:void(0);" gototab="#part_in_case_tab" class="tab">Part Digunakan</a></li>
+            <li><a href="javascript:void(0);" gototab="#part_in_case_tab" class="tab">Used Part</a></li>
             <li><a href="javascript:void(0);" gototab="#create_proposal_tab" class="tab">Proposal</a></li>
             <li><a href="javascript:void(0);" gototab="#log_info_tab" class="tab">Log Info</a></li>
             <li><a href="javascript:void(0);" gototab="#force_update" class="tab">Change Status</a></li>
@@ -133,11 +133,11 @@
         	
         </div>
         <div id="create_proposal_tab" class="content_tab">
-        	<button id="create_proposal">Buat Proposal</button>
+        	<button id="create_proposal">Create Proposal</button>
         </div>
         <div id="log_info_tab" class="content_tab">
         	<table class="main_table">
-            	<tr><td>Log Info Baru</td></tr>
+            	<tr><td>Add New Log</td></tr>
                 <tr><td><textarea name="new_log_entry" id="new_log_entry"></textarea></td></tr>
                 <tr><td><button id="submit_log">Add</button></td></tr>
                 <tr><td><hr /></td></tr>
@@ -153,7 +153,7 @@
         <div id="force_update" class="content_tab">
         	<table class="main_table">
             	<tr><td>Reason</td><td><?php $resolved_reason=array('0'=>'Normal','1'=>'DOA','2'=>'Fulfillment','3'=>'Partshortage','4'=>'Hard Case','5'=>'Operational Problem'); echo form_dropdown('resolved_reason',$resolved_reason,'','id="resolved_reason"');?></td></tr>
-                <tr><td>Status Baru</td><td><?php $new_status=array('11'=>'Ready to Ship','21'=>'Rejected'); echo form_dropdown('new_status',$new_status,'','id="new_status"');?></td></tr>
+                <tr><td>New Status</td><td><?php $new_status=array('11'=>'Ready to Ship','21'=>'Rejected'); echo form_dropdown('new_status',$new_status,'','id="new_status"');?></td></tr>
                 <tr><td>Log Info</td><td><textarea name="resolving_notes" id="resolving_notes"></textarea></td></tr>
                 <tr><td colspan="2"><button id="force_update_btn">Update Now</button></td></tr>
             </table>

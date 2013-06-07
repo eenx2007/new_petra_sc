@@ -141,7 +141,7 @@
 			);
 		});
 		$('#back_to_pending').click(function(){
-			$('.scrolling_item').load('<?php echo site_url('adminpanels/case_control/pending_management');?>#tombol_<?php echo $case_id;?>');
+			$('.scrolling_item').load('<?php echo site_url('csos/case_control/pending_management');?>#tombol_<?php echo $case_id;?>');
 		});
 		
 		$('#update_case_detail').click(function(){
