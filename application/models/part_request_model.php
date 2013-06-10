@@ -77,7 +77,7 @@ class Part_request_model extends CI_Model {
 	
 	function get_issued_to_fd()
 	{
-		$this->db->where('part_request.request_status',10);
+		$this->db->where('part_request.bad_part_sn','part_sell');
 		$this->db->join('user','user.user_id=part_request.user_id');
 		$query=$this->db->get('part_request');
 		return $query->result();

@@ -219,7 +219,7 @@
     
     <div class="over_screen"></div>
     <div id="ajax_loader" style="color:#FFF;position:fixed;bottom:20px;right:20px;opacity:0.6;">
-    	Build 0.7.4 last update 
+    	Build 1.0.3 last update 
 		<?php 
 			$directory = dirname(__FILE__);
 			$dir_last_modified_time = $this->global_model->dirmtime($directory);

@@ -4,6 +4,7 @@ class Proposal_model extends CI_Model {
 	var $case_id='';
 	var $proposal_create_date='';
 	var $proposal_status='';
+	var $proposal_dp='';
 	
 	var $det_proposal_id='';
 	var $part_request_id='';
@@ -17,6 +18,16 @@ class Proposal_model extends CI_Model {
 		$this->db->set('proposal_status',0);
 		$this->db->insert('proposal');
 		return $this->db->insert_id();	
+	}
+	
+	function create_new_sell()
+	{
+		$this->db->set('case_id',$this->case_id);
+		$this->db->set('proposal_create_date',time());
+		$this->db->set('proposal_status',0);
+		$this->db->set('proposal_dp',$this->propsal_dp);
+		$this->db->insert('proposal');
+		return $this->db->insert_id();
 	}
 	
 	function get_by_id($case_id)

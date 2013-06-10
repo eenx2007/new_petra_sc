@@ -56,7 +56,7 @@
 <div id="the_menu_all" class="innerbody" style="position:fixed;">
 <img src="<?php echo base_url();?>assets/images/loader_menu.png" class="loader_menu" style="display:none;" />
 <img src="<?php echo base_url();?>assets/images/kebuka.png" class="kebuka" style="display:none;" />
-<h3 style="position:absolute;color:#FFF;margin-top:-20px;margin-left:2px;">Dashboard Menu - Build 0.7.4</h3>
+<h3 style="position:absolute;color:#FFF;margin-top:-20px;margin-left:2px;">Dashboard Menu - Build 1.0.3</h3>
     <div id="sub_start">
        
             <img src="<?php echo base_url();?>assets/images/back_to_dashboard.png" id="back_to_dashboard" />
@@ -68,7 +68,7 @@
 	<?php echo $this->global_model->menu_item('new_case.png','New Case',site_url('csos/case_control/new_case'));?>
     <?php echo $this->global_model->menu_item('collection.png','Collection',site_url('csos/case_control/collection'));?>          
     <?php echo $this->global_model->menu_item('consultation.png','Consultation',site_url('csos/case_control/consultation'));?>
-    <?php echo $this->global_model->menu_item('part_sale.png','Part Sale',site_url('csos/part_control/part_by_me'));?>
+    <?php echo $this->global_model->menu_item('part_sale.png','Part Sale',site_url('csos/part_control/part_sale'));?>
     <?php echo $this->global_model->menu_item('pending.png','Pending Quote',site_url('csos/case_control/pending_quotation'));?>
     <?php echo $this->global_model->menu_item('today_statistic.png','Statistic',site_url('csos/report_control/today_statistic'));?>
 <?php elseif($this->session->userdata('user_type')==2): ?>

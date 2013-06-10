@@ -34,7 +34,7 @@
 							$('#sure_name_text').html(data.sure_name);
 							$('#user_type_text').html(data.user_type_text);
 							$('.toppane-right').fadeIn();
-							$('#user_image_place').html('<img src="<?php echo base_url();?>assets/user_image/'+data.user_image+'">');
+							$('#user_image_place').html('<img src="<?php echo base_url();?>assets/user_image/'+data.user_image+'" style="width:48px;height:48px;">');
 							$('#start_menu').load('<?php echo site_url('program/start_menu');?>');
 							sess_user_id=data.user_id;
 							sess_sure_name=data.sure_name;
@@ -89,7 +89,7 @@
 		$queryuser=$this->global_model->get_all_user();
 		foreach($queryuser as $rowsuser): ?>
             <div class="menu_item notselected" idnya="<?php echo $rowsuser->user_id;?>">
-                <div class="image_placer" style="padding-top:26px;position:static;margin:0;padding-top:26px;;"><img src="<?php echo base_url();?>assets/user_image/<?php echo $rowsuser->user_image;?>" /></div>
+                <div class="image_placer" style="position:static;margin:0;"><img src="<?php echo base_url();?>assets/user_image/<?php echo $rowsuser->user_image;?>" /></div>
                 <div class="text_placer" style="display:none;margin-top:10px;position:static;"><?php echo $rowsuser->sure_name;?></div>
             </div>
     <?php endforeach;?>

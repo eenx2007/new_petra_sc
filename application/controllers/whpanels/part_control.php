@@ -100,4 +100,10 @@ class Part_control extends CI_Controller {
 		$this->load->view('wh_include/recorded_part',$data);
 	}
 	
+	function issued_to_fd()
+	{
+		$data['query']=$this->part_request_model->get_issued_to_fd();
+		$this->load->view('wh_include/issued_to_fd',$data);	
+	}
+	
 }

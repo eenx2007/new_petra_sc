@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	$(document).ready(function(e) {
-		$('#need_to_be_issued').load('<?php echo site_url('wh_panel/issued_to_fd');?>');
+		$('#need_to_be_issued').load('<?php echo site_url('whpanels/part_control/issued_to_fd');?>');
         $('#give_part').click(function(){
 			u_id=$('#user_id').val();
 			p_released=$('#part_released').val();
@@ -52,7 +52,7 @@
 
 <div class="innerbody" style="width:60%;">
 	<div class="dashboard_item">
-    	<div class="dashboard_item_title">Need to be Issued at CSS</div>
+    	<div class="dashboard_item_title">Part Request By CSO</div>
         <div class="dashboard_item_content" id="need_to_be_issued">
         	
         </div>

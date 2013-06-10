@@ -25,11 +25,11 @@
     	<tr>
         	<td><?php echo $i;?></td>
             <td><?php echo 'G'.$rows->part_request_id;?></td>
-            <td><?php echo $rows->part_released;?></td>
-            <td><?php echo $rows->good_part_sn;?></td>
+            <td><?php echo $rows->part_number;?></td>
+            <td><?php echo $rows->bad_part_sn;?></td>
             <td><?php echo $rows->sure_name;?></td>
             <td><?php echo $rows->css_ref;?></td>
-            <td><button class="done_in_css">Done in CSS</button></td>
+            <td><button class="done_in_css">Waiting</button></td>
         </tr>
     <?php endforeach;?>
     </tbody>

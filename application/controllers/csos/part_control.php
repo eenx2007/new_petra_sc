@@ -17,4 +17,37 @@ class Part_control extends CI_Controller {
 		write_file('./db_cache/fd_activity.txt','Part Sale Code Number G'.$this->input->post('part_request_id').' Closed by '.$this->session->userdata('sure_name'));
 	}
 	
+	function part_sale()
+	{
+		
+		$c_namenya='';
+		$query=$this->customer_model->get_all();
+		foreach($query as $rows)
+		{
+			$c_namenya.='"'.$rows->customer_name.'",';	
+		}
+		$c_namenya.='"-"';
+		$data['customer_namenya']=$c_namenya;
+		$this->load->view('cso_include/part_sale',$data);
+	}
+	
+	function create_request()
+	{
+		$this->customer_model->customer_name=$this->input->post('customer_name');
+		$this->customer_model->customer_address=$this->input->post('customer_address');
+		$this->customer_model->customer_phone=$this->input->post('customer_phone');
+		$this->customer_model->customer_phone2=$this->input->post('customer_phone2');
+		$id_user=$this->customer_model->save_new();
+		
+		$this->proposal_model->case_id='no_case';
+		$this->proposal_model->propsal_dp=$this->input->post('total_down_payment');
+		$proposal_number=$this->proposal_model->create_new_sell();
+		
+		$this->part_request_model->part_number=$this->input->post('part_number');
+		$this->part_request_model->case_id=$proposal_number;
+		$this->part_request_model->user_id=$this->input->post('user_id');
+		$this->part_request_model->bad_part_sn='part_sell';
+		$this->part_request_model->oem_part_sn=$this->input->post('request_qty');
+		$this->part_request_model->new_part_request();
+	}
 }
