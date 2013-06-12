@@ -59,6 +59,8 @@
 						$('#case_type_text').val(data.case_type);
 						$('#case_status_text').val(data.case_status);
 						$('#creator_text').val(data.creator);
+						$('#case_problem_text').val(data.case_problem);
+						$('#completeness_text').val(data.completeness);
 						$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
 						$('#part_in_case_tab').load('<?php echo site_url('engineers/part_control/part_in_case');?>/'+c_id);
 					}
@@ -158,6 +160,8 @@
                 <tr><td>Case Type</td><td><input type="text" name="case_type_text" id="case_type_text" /></td></tr>
                 <tr><td>Status</td><td><input type="text" name="case_status_text" id="case_status_text" /></td></tr>
                 <tr><td>CSO</td><td><input type="text" name="creator_text" id="creator_text" /></td></tr>
+                <tr><td>Problem</td><td><input type="text" name="case_problem_text" id="case_problem_text" style="color:#F00;font-weight:bold;" /></td></tr>
+                <tr><td>Completeness</td><td><textarea name="completeness_text" id="completeness_text" style="width:90%;"></textarea></td></tr>
             </table>
         </div>
         <div id="part_in_case_tab" class="content_tab">

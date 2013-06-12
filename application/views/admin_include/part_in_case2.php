@@ -1,5 +1,29 @@
+
+<table class="main_table">
+	<tr><th>No.</th><th>Part Number</th><th>Status</th><th>Reff</th></tr>
+    <?php $i=0; foreach($query as $rows): $i++; ?>
+    	<tr>
+        	<td><?php echo $i;?></td>
+            <td><?php echo $rows->part_released;?></td>
+           
+            <td>
+            	<?php if($rows->request_status==6): ?>
+            	<a href="javascript:void(0);" class="bad_ok_update" idnya="<?php echo $rows->part_request_id;?>">Add to Proposal</a></td>
+                <?php else: ?>
+                	<?php echo $this->global_model->get_request_status($rows->request_status);?>
+                <?php endif;?>
+            <td><?php echo $rows->css_ref;?></td>
+            
+        </tr>
+    <?php endforeach;?>
+    
+</table>
+
 <script type="text/javascript">
 	$(document).ready(function(){
+		<?php if($i>0): ?>
+			$('#warningnya').html('Ada part request! Harap membuat proposal');
+		<?php endif;?>
 		$('.bad_ok_update').click(function(){
 			c_id=$('#case_id').val();
 			idnya=$(this).attr('idnya');
@@ -35,22 +59,3 @@
 		});
 	});
 </script>
-<table class="main_table">
-	<tr><th>No.</th><th>Part Number</th><th>Status</th><th>Reff</th></tr>
-    <?php $i=0; foreach($query as $rows): $i++; ?>
-    	<tr>
-        	<td><?php echo $i;?></td>
-            <td><?php echo $rows->part_released;?></td>
-           
-            <td>
-            	<?php if($rows->request_status==6): ?>
-            	<a href="javascript:void(0);" class="bad_ok_update" idnya="<?php echo $rows->part_request_id;?>">Add to Proposal</a></td>
-                <?php else: ?>
-                	<?php echo $this->global_model->get_request_status($rows->request_status);?>
-                <?php endif;?>
-            <td><?php echo $rows->css_ref;?></td>
-            
-        </tr>
-    <?php endforeach;?>
-    
-</table>

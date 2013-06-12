@@ -36,7 +36,8 @@ class Case_control extends CI_Controller {
 							'case_type_id'=>$row->case_type,
 							'assign_to'=>$row->assign_to,
 							'symptom'=>$row->description,
-							'case_problem'=>$row->case_problem
+							'case_problem'=>$row->case_problem,
+							'completeness'=>$row->completeness
 							);
 		}
 		echo json_encode($kembali);

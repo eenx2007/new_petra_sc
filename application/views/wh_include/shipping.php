@@ -4,13 +4,21 @@
 		$('.print_transfer_note').click(function(){
 			loc_id=$(this).attr('group_nya');
 			s_note=$('#shipping_note_'+loc_id).val();
-			$.post('<?php echo site_url('wh_panel/print_transfer_note');?>',
+			$.post('<?php echo site_url('wh_panel/update_transfer_note');?>',
 				{
 					location_id:loc_id,
 					shipping_note:s_note
 				},
 				function(data)
-				{
+				{	
+					var windowSizeArray = [ "width=200,height=200",
+											"width=300,height=400,scrollbars=yes" ];
+					var url = '<?php echo site_url('wh_panel/print_transfer_note');?>/'+data;
+					var windowName = "popUp";//$(this).attr("name");
+					var windowSize = windowSizeArray[$(this).attr("rel")];
+					
+					window.open(url, windowName, windowSize);
+					back_to_dashboard();
 					$('.scrolling_item').load('<?php echo site_url('wh_panel/shipping');?>');
 				}
 			);

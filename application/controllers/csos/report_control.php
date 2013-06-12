@@ -4,10 +4,18 @@ class Report_control extends CI_Controller {
 
 	function print_srf($case_id)
 	{
-		$this->load->library('pdf');
+		//$this->load->library('pdf');
 		$data['row']=$this->case_model->get_by_case_id($case_id);
-		$filepdf=$this->load->view('cso_include/srf',$data,TRUE);
-		$this->pdf->pdf_create($filepdf,'Service Request Form');
+		//$filepdf=$this->load->view('cso_include/srf',$data,TRUE);
+		//$this->pdf->pdf_create($filepdf,'Service Request Form');
+		$output = $this->load->view("cso_include/srf", $data,TRUE);
+		header("Content-Type: application/vnd.ms-word");
+	    header("Expires: 0");
+   		header("Cache-Control:  must-revalidate, post-check=0, pre-check=0");
+   		header('Content-disposition: attachment; filename="'.$case_id.'.doc"');
+
+   		
+   		echo $output;
 	}
 	
 	function today_statistic($user_id)
@@ -37,13 +45,22 @@ class Report_control extends CI_Controller {
 	
 	function print_invoice($proposal_id)
 	{
-		$this->load->library('pdf');
+		//$this->load->library('pdf');
 		$check_proposal=$proposal_id;
 		$data['proposal_id']=$check_proposal;
 		$data['query']=$this->proposal_model->get_by_proposal($check_proposal);
 		$data['query2']=$this->proposal_model->get_by_proposal2($check_proposal);
-		//$this->load->view('cso_include/invoice',$data);
-		$filepdf=$this->load->view('cso_include/invoice',$data,TRUE);
-		$this->pdf->pdf_create($filepdf,'Service Request Form');	
+		$data['discount']=0;
+		$data['ppn']=0;
+		$data['down_payment']=0;
+		$output=$this->load->view('cso_include/invoice',$data,TRUE);
+		//$filepdf=$this->load->view('cso_include/invoice',$data,TRUE);
+		//$this->pdf->pdf_create($filepdf,'Service Request Form');	
+		header("Content-Type: application/vnd.ms-word");
+	    header("Expires: 0");
+   		header("Cache-Control:  must-revalidate, post-check=0, pre-check=0");
+   		header('Content-disposition: attachment; filename="I-'.$proposal_id.'.doc"');
+		
+		echo $output;
 	}
 }

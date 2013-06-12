@@ -111,11 +111,7 @@ class Wh_panel extends CI_Controller {
 		echo json_encode($kembali);
 	}
 	
-	function issued_to_fd()
-	{
-		$data['query']=$this->part_request_model->get_issued_to_fd();
-		$this->load->view('wh_include/issued_to_fd',$data);	
-	}
+	
 	
 	function shipping()
 	{
@@ -123,11 +119,27 @@ class Wh_panel extends CI_Controller {
 		$this->load->view('wh_include/shipping',$data);
 	}
 	
-	function print_transfer_note()
+	function update_transfer_note()
 	{
 		$this->location_model->location_id=$this->input->post('location_id');
 		$this->location_model->shipping_note=$this->input->post('shipping_note');
 		$notes_id=$this->location_model->add_transfer_note();
 		$this->location_model->update_transfer_status($this->input->post('location_id'),$notes_id);
+		
+		echo $notes_id;
+		
+	}
+	
+	function print_transfer_note($notes_id)
+	{
+		$data['row']=$this->location_model->get_note_by_id($notes_id);
+		$data['query']=$this->location_model->get_transfer_status_by_id($notes_id);
+		$output=$this->load->view('wh_include/transfer_note',$data,TRUE);
+		header("Content-Type: application/vnd.ms-word");
+	    header("Expires: 0");
+   		header("Cache-Control:  must-revalidate, post-check=0, pre-check=0");
+   		header('Content-disposition: attachment; filename="T'.$notes_id.'.doc"');
+		
+		echo $output;
 	}
 }

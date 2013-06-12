@@ -181,6 +181,33 @@ class Global_model extends CI_Model {
 		return $statusnya;	
 	}
 	
+	function Terbilang($satuan){  
+		$huruf = array ("", "satu", "dua", "tiga", "empat", "lima", "enam",   
+		"tujuh", "delapan", "sembilan", "sepuluh","sebelas");  
+		if ($satuan < 12)  
+		 return " ".$huruf[$satuan];  
+		elseif ($satuan < 20)  
+		 return $this->Terbilang($satuan - 10)." belas";  
+		elseif ($satuan < 100)  
+		 return $this->Terbilang($satuan / 10)." puluh".  
+		 $this->Terbilang($satuan % 10);  
+		elseif ($satuan < 200)  
+		 return "seratus".Terbilang($satuan - 100);  
+		elseif ($satuan < 1000)  
+		 return $this->Terbilang($satuan / 100)." ratus".  
+		 $this->Terbilang($satuan % 100);  
+		elseif ($satuan < 2000)  
+		 return "seribu".$this->Terbilang($satuan - 1000);   
+		elseif ($satuan < 1000000)  
+		 return $this->Terbilang($satuan / 1000)." ribu".  
+		 $this->Terbilang($satuan % 1000);   
+		elseif ($satuan < 1000000000)  
+		 return $this->Terbilang($satuan / 1000000)." juta".  
+		 $this->Terbilang($satuan % 1000000);   
+		elseif ($satuan >= 1000000000)  
+		 echo "Angka terlalu Besar";  
+		} 
+	
 	function get_reason($resolved_reason)
 	{
 		if($resolved_reason==0)
@@ -298,5 +325,7 @@ class Global_model extends CI_Model {
 	
 		return $workingDays;
 		}
+	
+	
 
 }

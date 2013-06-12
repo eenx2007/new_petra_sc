@@ -76,4 +76,20 @@ class Location_model extends CI_Model {
 		$this->db->set('transfer_note_id',$transfer_note_id);
 		$this->db->update('ready_to_transfer');	
 	}
+	
+	function get_note_by_id($transfer_note_id)
+	{
+		$this->db->where('transfer_note.transfer_note_id',$transfer_note_id);
+		$this->db->join('location','location.location_id=transfer_note.location_id');
+		$query=$this->db->get('transfer_note');
+		return $query->row();
+	}
+	
+	function get_transfer_status_by_id($transfer_note_id)
+	{
+		$this->db->where('ready_to_transfer.transfer_note_id',$transfer_note_id);
+		$this->db->join('the_case','the_case.case_id=ready_to_transfer.case_id');
+		$query=$this->db->get('ready_to_transfer');
+		return $query->result();	
+	}
 }

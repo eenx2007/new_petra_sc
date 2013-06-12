@@ -118,6 +118,7 @@
         </ul>
         <div id="case_detail_tab" class="content_tab">
        		<table class="main_table">
+            	<tr><td colspan="2"><span id="warningnya" style="color:#F00;font-weight:bold;text-decoration:blink;"></span></td></tr>
             	<tr><td>Case ID</td><td><input type="text" name="case_id_text" id="case_id_text" /></td></tr>
                 <tr><td>Date In</td><td><input type="text" name="create_date_text" id="create_date_text" /></td></tr>
                 <tr><td>Customer Name</td><td><input type="text" name="customer_name_text" id="customer_name_text" /></td></tr>

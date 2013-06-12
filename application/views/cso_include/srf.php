@@ -1,12 +1,17 @@
-<html>
-	<head>
-    	<title>
-   		</title>
-    </head>
-<body>
+
 <style>
+
+<!-- 
+@page
+{
+    margin:1cm 1cm 1cm 1cm; /* Margins: 2.5 cm on each side */
+    
+}
+@page Section1 { }
+div.Section1 { page:Section1; }
+-->
 	body{
-		font-size:13px;	
+		font-size:12px;	
 		font-family:Courier, monospace;
 		font-weight:bold;
 		margin:0;
@@ -16,6 +21,7 @@
 	.berborder td{border-top:1px solid #000;}
 	.isinya td{font-size:10px;padding-left:15px;}
 </style>
+<div class="Section1">
 <table style="width:100%;">
 	<tr>
     	<th colspan="2">
@@ -66,8 +72,8 @@
 
 <table style="width:100%;">
 	<tr><td colspan="2"><div align="center">Diterima</div></td><td colspan="2"><div align="center">Diambil</div></td></tr>
-    <tr><td colspan="4"><br />
-<br />
+    <tr><td colspan="2" style="border:1px solid #000;"><div align="center">TGL ______/______/_________</div></td><td colspan="2" style="border:1px solid #000;"><div align="center">TGL ______/______/_________</div></td></tr>
+    <tr><td colspan="4">
 <br />
 <br />
 <br /></td></tr>
@@ -105,9 +111,9 @@
                 <li>Pelanggan yang menandatangani lembar ini telah memahami dan menyetujui syarat dan ketentuan diatas</li>
                 <li>Untuk biaya pengecekan/pembatalan Rp. 25.000</li>
                 <li>PETRA COMPUTER tidak bertanggung jawab atas unit service yang tidak diambil dalam waktu 3 bulan sejak tangal penerimaan</li>
+                <li>Pelayanan Service dimulai dari pukul 8.00 sampai dengan 16.30</li>
             </ol>
+        </td>
     </tr>	
 </table>
-</body>
-
-</html>
+</div>
