@@ -50,7 +50,7 @@ div.Section1 { page:Section1; }
 </table>
 
 <table style="width:100%;">
-	<tr class="atasan"><td>No</td><td>Nama Barang</td><td>SN</td><td>Keterangan</td></tr>
+	<tr class="atasan"><td>No</td><td>Nama Barang</td><td>SN</td><td>Kerusakan</td><td>Kelengkapan</td></tr>
     <?php $i=0;
 		foreach($query as $rows): $i++;?>
     	<tr>
@@ -58,10 +58,11 @@ div.Section1 { page:Section1; }
             <td><?php echo $rows->unit_type;?></td>
             <td><?php echo $rows->serial_number;?></td>
             <td><?php echo $rows->case_problem;?></td>
+            <td><?php echo $rows->completeness;?></td>
         </tr>    
         
     <?php endforeach;?>
-    <tr><td colspan="4" style="border-bottom:solid 1px #000;"></td></tr>
+    <tr><td colspan="5" style="border-bottom:solid 1px #000;"></td></tr>
 </table>
 <br /><br />
 <table style="width:100%;">

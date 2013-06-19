@@ -6,6 +6,7 @@
 		$('.symptom_list').autocomplete({
 			source: availableTags
 		});
+		$('#engineer_pending_on_hand').load('<?php echo site_url('adminpanels/case_control/get_pending_on_hand');?>');
 		$('.dashboard_item_title').width($('.dashboard_item').width()-20);
 		$('.update_case').click(function(){
 			c_idnya=$(this).attr('case_idnya');
@@ -23,6 +24,7 @@
 				function(data)
 				{
 					$('.scrolling_item').load('<?php echo site_url('adminpanels/case_control/case_today');?>');
+
 				}
 			);
 		});
@@ -61,6 +63,16 @@
 </script>
 
 <div class="innerbody2">
+	<div class="dashboard_item">
+    	<div class="dashboard_item_title">
+        	<div>Total Pending by Engineer</div>
+            
+        </div>
+       	<div class="dashboard_item_content" id="engineer_pending_on_hand">
+        	
+        </div>
+    </div>
+    <br />
 	<div class="dashboard_item">
     	<div class="dashboard_item_title" style="float:left;width:100%;">
         	<div style="width:30%;float:left;">Case Today</div>

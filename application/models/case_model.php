@@ -203,12 +203,31 @@ class Case_model extends CI_Model {
 		return $query->result();	
 	}
 	
+	function get_pending_on_hand($assign_to)
+	{
+		$kembali=array();
+		$this->db->where('assign_to',$assign_to);
+		$this->db->where('case_status',23);
+		$query=$this->db->get('the_case');
+		$totalnya=$query->num_rows;
+		$kembali['rc_progress']=$totalnya;
+		
+		$this->db->where('assign_to',$assign_to);
+		$this->db->where('case_status !=',12);
+		$query=$this->db->get('the_case');
+		$totalnya=$query->num_rows;
+		$kembali['all_pending']=$totalnya;
+		$kembali['on_hand']=$kembali['all_pending']-$kembali['rc_progress'];
+		return $kembali;
+	}
+	
 	function get_pending_all()
 	{
 		$this->db->where('the_case.case_status !=',12);
 		$this->db->join('user','user.user_id=the_case.creator');
 		$this->db->join('error_code','error_code.error_code=the_case.symptom');
 		$this->db->join('customer','customer.customer_id=the_case.customer_id');
+		$this->db->join('location','location.location_id=the_case.location_id');
 		$this->db->order_by('the_case.create_date');
 		$query=$this->db->get('the_case');
 		return $query->result();	
@@ -262,6 +281,7 @@ class Case_model extends CI_Model {
 	{
 		$this->db->where('case_log.case_id',$case_id);
 		$this->db->join('user','user.user_id=case_log.case_log_user');
+		$this->db->order_by('case_log.case_log_id');
 		$query=$this->db->get('case_log');
 		return $query->result();
 	}

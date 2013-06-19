@@ -4,7 +4,7 @@
 <!-- 
 @page
 {
-    margin:1cm 1cm 1cm 1cm; /* Margins: 2.5 cm on each side */
+    margin:0.6cm 0.6cm 0.6cm 0.6cm; /* Margins: 2.5 cm on each side */
     
 }
 @page Section1 { }
@@ -20,6 +20,7 @@ div.Section1 { page:Section1; }
 	th{border-bottom:1px solid #000;}
 	.berborder td{border-top:1px solid #000;}
 	.isinya td{font-size:10px;padding-left:15px;}
+	
 </style>
 <div class="Section1">
 <table style="width:100%;">
@@ -38,7 +39,7 @@ div.Section1 { page:Section1; }
 	<tr>
     	<td style="width:50%;">
         	<table>
-            	<tr><td>Case ID</td><td>: <strong><?php echo $row->case_id;?></strong></td></tr>
+            	<tr><td colspan="2">Case ID : <strong><?php echo $row->case_id;?></strong></td></tr>
                 <tr><td colspan="2"><?php echo $row->customer_name;?><br />
                 <?php echo $row->customer_address;?><br />
                 <?php echo $row->customer_phone;?> - <?php echo $row->customer_phone2;?></td></tr>
@@ -62,11 +63,11 @@ div.Section1 { page:Section1; }
     
     <tr><td colspan="4" style="border-bottom:1px solid #000;"></td></tr>
     <tr>
-      <td colspan="4">Problem : <br />
-   	<?php echo $row->case_problem;?></td></tr>
-    <tr><td colspan="4" style="border-bottom:1px solid #000;"></td></tr>
+      <td colspan="4">Problem : <?php echo $row->case_problem;?></td></tr>
+    
     <tr>
-      <td colspan="4">Kelengkapan : <br /><?php echo $row->completeness;?></td></tr>
+      <td colspan="4">Kelengkapan : <?php echo $row->completeness;?></td></tr>
+      <tr><td colspan="4" style="border-bottom:1px solid #000;"></td></tr>
 </table>
 
 
@@ -103,7 +104,7 @@ div.Section1 { page:Section1; }
 </table>
 <table style="width:100%;">
 	<tr>
-    	<td style="font-size:11px;">Syarat dan Ketentuan<br />
+    	<td style="font-size:10px;border-top:1px solid #000;">
         	<ol>
             	<li>Lembar ini merupakan pengambilan unit dan harap disimpan dengan baik, segala resiko yang diakibatkan oleh hilangnya lembar ini adalah diluar tanggung jawab PETRA COMPUTER</li>
                 <li>PETRA COMPUTER tidak bertanggung jawab terhadap kehilangan data</li>

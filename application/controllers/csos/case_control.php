@@ -55,6 +55,9 @@ class Case_control extends CI_Controller {
 		$this->cso_activity_model->new_activity();
 		write_file('./db_cache/new_case_check.txt','');
 		
+		$this->case_model->case_log_activity='Create new Case';
+		$this->case_model->update_log($this->input->post('case_id'),$this->input->post('user_id'));
+		
 		$kembali=array('case_id'=>$new_case_id);
 		$kembalinya=json_encode($kembali);
 		echo $kembalinya;

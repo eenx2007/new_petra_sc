@@ -43,7 +43,9 @@
 			{
 			 	$.post('<?php echo site_url('adminpanels/part_control/delete_request');?>',
 			  		{
-						part_request_id:pr_id
+						part_request_id:pr_id,
+						user_id:sess_user_id,
+						case_id:c_id
 					},
 					function(data)
 					{

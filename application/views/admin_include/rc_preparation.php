@@ -7,7 +7,8 @@
 			$.post('<?php echo site_url('adminpanels/location_control/rc_process');?>',
 				{
 					case_id:c_id,
-					location_id:l_id	
+					location_id:l_id,
+					user_id:sess_user_id
 				},
 				function(data)
 				{

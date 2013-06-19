@@ -12,6 +12,7 @@ class Case_control extends CI_Controller {
 			$listeng[$rowseng->user_id]=$rowseng->sure_name;	
 		}
 		$data['listeng']=$listeng;
+		$data['queryeng']=$queryeng;
 		$data['query']=$this->case_model->get_unassigned();
 		$queryerror=$this->case_model->get_symptom();
 		$symptomnya='';
@@ -25,6 +26,13 @@ class Case_control extends CI_Controller {
 		$this->load->view('admin_include/case_today',$data);
 	}
 	
+	function get_pending_on_hand()
+	{
+		$queryeng=$this->global_model->get_all_engineer();
+		$data['queryeng']=$queryeng;
+		$this->load->view('admin_include/engineer_pending_on_hand',$data);
+	}
+	
 	function assign_case()
 	{
 		$this->case_model->assign_to=$this->input->post('assign_to');
@@ -35,7 +43,7 @@ class Case_control extends CI_Controller {
 		$this->case_model->location_id='1002';
 		$this->case_model->assign_case();
 		
-		$this->case_model->case_log_activity='Diberikan ke '.$this->global_model->get_engineer($this->input->post('assign_to'));
+		$this->case_model->case_log_activity='Assign to '.$this->global_model->get_engineer($this->input->post('assign_to'));
 		$this->case_model->update_log($this->input->post('case_id'),$this->input->post('user_id'));
 	}
 	
@@ -67,7 +75,7 @@ class Case_control extends CI_Controller {
 	{
 		$this->case_model->change_location($this->input->post('case_id'),$this->input->post('case_status'),'7002');
 		$this->case_model->resolving_case($this->input->post('case_id'),$this->input->post('case_status'),$this->input->post('resolved_reason'));
-		$this->case_model->case_log_activity='Mengganti status menjadi Siap Diambil<br />'.nl2br($this->input->post('resolving_notes'));
+		$this->case_model->case_log_activity='Change status to Ready to Ship<br />'.nl2br($this->input->post('resolving_notes'));
 		$this->case_model->log_type=5;
 		$this->case_model->update_log_from_form($this->input->post('case_id'),$this->input->post('user_id'));
 		write_file('./db_cache/case_out_check.txt','');
@@ -106,12 +114,16 @@ class Case_control extends CI_Controller {
 		$this->case_model->unit_type=$this->input->post('unit_type');
 		$this->case_model->case_type=$this->input->post('case_type');
 		$this->case_model->update_case_detail($this->input->post('case_id'));	
+		
+		$this->case_model->case_log_activity='Update the case detail data';
+		$this->case_model->update_log($this->input->post('case_id'),$this->input->post('user_id'));
 	}
 	
 	function transfer_case()
 	{
 		$this->case_model->transfer_case($this->input->post('case_id'),$this->input->post('assign_to'));
-		echo $this->db->last_query();
+		$this->case_model->case_log_activity='Change assignment to '.$this->global_model->get_engineer($this->input->post('assign_to'));
+		$this->case_model->update_log($this->input->post('case_id'),$this->input->post('user_id'));
 	}
 	
 	function repair_complete_admin()

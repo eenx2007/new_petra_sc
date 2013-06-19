@@ -34,6 +34,8 @@
 					part_request_id:idnya,
 					request_status:updatenya,
 					proposal_id:p_idnya
+					case_id:c_id,
+					user_id:sess_user_id
 				},
 				function(data)
 				{
@@ -49,7 +51,9 @@
 			$.post('<?php echo site_url('adminpanels/part_control/update_part_status');?>',
 				{
 					part_request_id:idnya,
-					request_status:updatenya	
+					request_status:updatenya,
+					case_id:c_id,
+					user_id:sess_user_id
 				},
 				function(data)
 				{

@@ -36,7 +36,7 @@ class Proposal_model extends CI_Model {
 		$query=$this->db->get('proposal');
 		$totalcek=$query->num_rows;
 		if($totalcek==0)
-			return 0;
+			return "0";
 		else
 		{
 			$rowcek=$query->row();	

@@ -17,10 +17,10 @@ class Proposal_control extends CI_Controller {
 	function create_proposal($case_id)
 	{
 		$check_proposal=$this->proposal_model->get_by_id($case_id);
-		if($check_proposal==0)
+		if($check_proposal=="0")
 			$data['proposal_id']=$this->proposal_model->create_new($case_id);
 		else
-			$data['proposal_id']=$check_proposal;
+			$data['proposal_id']=$check_proposal->proposal_id;
 		$this->load->view('admin_include/create_proposal',$data);
 	}
 

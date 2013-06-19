@@ -70,6 +70,7 @@
     <?php echo $this->global_model->menu_item('consultation.png','Consultation',site_url('csos/case_control/consultation'));?>
     <?php echo $this->global_model->menu_item('part_sale.png','Part Sale',site_url('csos/part_control/part_sale'));?>
     <?php echo $this->global_model->menu_item('pending.png','Pending Quote',site_url('csos/case_control/pending_quotation'));?>
+    <?php echo $this->global_model->menu_item('need_to_call.png','Need To Call',site_url('csos/report_control/need_to_call'));?>
     <?php echo $this->global_model->menu_item('today_statistic.png','Statistic',site_url('csos/report_control/today_statistic'));?>
 <?php elseif($this->session->userdata('user_type')==2): ?>
 	<?php echo $this->global_model->menu_item('update_case.png','Update Case',site_url('adminpanels/case_control/update_case/0'));?>

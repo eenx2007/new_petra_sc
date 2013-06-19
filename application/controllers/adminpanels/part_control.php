@@ -29,10 +29,16 @@ class Part_control extends CI_Controller {
 	{
 		$this->part_request_model->update_part_use($this->input->post('part_request_id'),$this->input->post('request_status'));	
 		$this->proposal_model->add_detail($this->input->post('part_request_id'),$this->input->post('proposal_id'));
+		
+		$this->case_model->case_log_activity='Change the part status';
+		$this->case_model->update_log($this->input->post('case_id'),$this->input->post('user_id'));
 	}
 	
 	function delete_request()
 	{
 		$this->part_request_model->delete_request($this->input->post('part_request_id'));	
+		
+		$this->case_model->case_log_activity='Delete part request from engineer';
+		$this->case_model->update_log($this->input->post('case_id'),$this->input->post('user_id'));
 	}
 }

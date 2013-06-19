@@ -66,6 +66,7 @@
 							$('#component_detailnya').attr('src',data.comp_detail);
 							$('#case_problem_text').val(data.case_problem);
 							$('#completeness_text').val(data.completeness);
+							$('#remarks_text').val(data.remarks);
 							$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
 							$('#part_in_case_tab').load('<?php echo site_url('engineers/part_control/part_in_case');?>/'+c_id);
 						}
@@ -196,6 +197,7 @@
                 <tr><td>Status</td><td><input type="text" name="case_status_text" id="case_status_text" /></td></tr>
                 <tr><td>CSO</td><td><input type="text" name="creator_text" id="creator_text" /></td></tr>
                 <tr><td>Problem</td><td><input type="text" name="case_problem_text" id="case_problem_text" style="color:red;font-weight:bold;" /></td></tr>
+                <tr><td>Remarks</td><td><input type="text" name="remarks_text" id="remarks_text" /></td></tr>
                 <tr><td>Completeness</td><td><textarea name="completeness_text" id="completeness_text" style="width:90%;"></textarea></td></tr>
             </table>
         </div>

@@ -92,7 +92,8 @@
 						$('#engineer_trans').val(data.assign_to);
 						$('#creator_text').val(data.creator);
 						$('#component_detailnya').attr('src',data.comp_detail);
-						$('#symptom').val(data.symptom);
+						$('#symptom').val(data.case_problem);
+						$('#remarks_text').val(data.remarks);
 						$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
 						$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case');?>/'+c_id);
 					}
@@ -158,7 +159,8 @@
 					phone_number:p_number,
 					serial_number:sn,
 					unit_type:u_type,
-					case_type:c_type
+					case_type:c_type,
+					user_id:sess_user_id
 				},
 				function(data)
 				{
@@ -196,7 +198,8 @@
 			$.post('<?php echo site_url('adminpanels/case_control/transfer_case');?>',
 				{
 					case_id:c_id,
-					assign_to:a_to	
+					assign_to:a_to,
+					user_id:sess_user_id
 				},
 				function(data)
 				{
@@ -274,8 +277,9 @@
                 <tr><td>Serial Number</td><td><input type="text" name="serial_number_text" id="serial_number_text" /></td></tr>
                 <tr><td>Unit Type</td><td><input type="text" name="unit_type_text" id="unit_type_text" /></td></tr>
                 <tr><td>Case Type</td><td><?php $case_type_text=array('0'=>'Warranty','1'=>'Out of Warranty'); echo form_dropdown('case_type_text',$case_type_text,'','id="case_type_text"');?></td></tr>
-                <tr><td>Symptom</td><td><input type="text" name="symptom" id="symptom" /></td></tr>
-                <tr><td>Case Status</td><td><input type="text" name="case_status_text" id="case_status_text" disabled="disabled" /></td></tr>
+                <tr><td>Problem</td><td><input type="text" name="symptom" id="symptom" /></td></tr>
+                <tr><td>Remarks</td><td><input type="text" name="remarks_text" id="remarks_text" /></td></tr>
+                <tr><td>Case Status</td><td><input type="text" name="case_status_text" id="case_status_text" disabled="disabled" style="color:#F00;" /></td></tr>
                 <tr><td>Creator</td><td><input type="text" name="creator_text" id="creator_text" disabled="disabled" /></td></tr>
                 <tr><td colspan="2"><button id="update_case_detail">Update Detail</button></td></tr>
             </table>

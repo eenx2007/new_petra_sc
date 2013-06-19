@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-body{background: url(images/bg.png) no-repeat top left #1D1D1D;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;font-size:12px;}
+body{background: url(images/bg.png) no-repeat top left #232347;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;font-size:12px;}
 
 @font-face {
     font-family: '7segment';

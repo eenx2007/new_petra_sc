@@ -19,7 +19,7 @@
 					
 					window.open(url, windowName, windowSize);
 					back_to_dashboard();
-					$('.scrolling_item').load('<?php echo site_url('wh_panel/shipping');?>');
+
 				}
 			);
 		});

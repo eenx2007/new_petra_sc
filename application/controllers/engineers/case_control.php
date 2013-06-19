@@ -37,6 +37,7 @@ class Case_control extends CI_Controller {
 							'assign_to'=>$row->assign_to,
 							'symptom'=>$row->description,
 							'case_problem'=>$row->case_problem,
+							'remarks'=>$row->remarks,
 							'completeness'=>$row->completeness
 							);
 		}

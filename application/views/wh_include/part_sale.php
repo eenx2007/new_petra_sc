@@ -16,7 +16,7 @@
 					message_alert_stop('Request Part ID is '+data.part_request_id);
 					$('#part_released').val('');
 					$('#good_part_sn').val('');
-					$('#need_to_be_issued').load('<?php echo site_url('wh_panel/issued_to_fd');?>');
+					$('#need_to_be_issued').load('<?php echo site_url('whpanels/part_control/issued_to_fd');?>');
 				},
 				'json'
 			);
