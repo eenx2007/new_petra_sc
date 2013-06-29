@@ -390,11 +390,10 @@ class Case_model extends CI_Model {
 	
 	function update_case_detail($case_id)
 	{
-		$this->db->set('customer_name',$this->customer_name);
-		$this->db->set('phone_number',$this->phone_number);
 		$this->db->set('serial_number',$this->serial_number);
 		$this->db->set('unit_type',$this->unit_type);
 		$this->db->set('case_type',$this->case_type);
+		$this->db->set('case_problem',$this->case_problem);
 		$this->db->where('case_id',$case_id);
 		$this->db->update('the_case');	
 	}

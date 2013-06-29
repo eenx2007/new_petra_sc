@@ -29,4 +29,14 @@ class Customer_model extends CI_Model {
 		$query=$this->db->get('customer');
 		return $query->row();
 	}
+	
+	function update_by_id($customer_id)
+	{
+		$this->db->set('customer_name',$this->customer_name);
+		$this->db->set('customer_address',$this->customer_address);
+		$this->db->set('customer_phone',$this->customer_phone);
+		$this->db->set('customer_phone2',$this->customer_phone2);
+		$this->db->where('customer_id',$customer_id);
+		$this->db->update('customer');
+	}
 }

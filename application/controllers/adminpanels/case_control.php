@@ -140,15 +140,27 @@ class Case_control extends CI_Controller {
 	
 	function update_case_detail()
 	{
-		$this->case_model->customer_name=$this->input->post('customer_name');
-		$this->case_model->phone_number=$this->input->post('phone_number');
 		$this->case_model->serial_number=$this->input->post('serial_number');
 		$this->case_model->unit_type=$this->input->post('unit_type');
 		$this->case_model->case_type=$this->input->post('case_type');
+		$this->case_model->case_problem=$this->input->post('case_problem');
 		$this->case_model->update_case_detail($this->input->post('case_id'));	
 		
 		$this->case_model->case_log_activity='Update the case detail data';
 		$this->case_model->update_log($this->input->post('case_id'),$this->input->post('user_id'));
+	}
+	
+	function update_customer_data()
+	{
+		$this->customer_model->customer_name=$this->input->post('customer_name');
+		$this->customer_model->customer_address=$this->input->post('customer_address');
+		$this->customer_model->customer_phone=$this->input->post('customer_phone');
+		$this->customer_model->customer_phone2=$this->input->post('customer_phone2');
+		$this->customer_model->update_by_id($this->input->post('customer_id'));
+
+		$this->case_model->case_log_activity='Update the customer data';
+		$this->case_model->update_log($this->input->post('case_id'),$this->input->post('user_id'));
+		
 	}
 	
 	function transfer_case()

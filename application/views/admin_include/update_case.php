@@ -125,24 +125,46 @@
 		
 		$('#update_case_detail').click(function(){
 			c_id=$('#case_id_text').val();
-			c_name=$('#customer_name_text').val();
-			p_number=$('#phone_number_text').val();
 			sn=$('#serial_number_text').val();
 			u_type=$('#unit_type_text').val();
 			c_type=$('#case_type_text').val();
+			p_blem=$('#symptom').val();
 			$.post('<?php echo site_url('adminpanels/case_control/update_case_detail');?>',
 				{
 					case_id:c_id,
-					customer_name:c_name,
-					phone_number:p_number,
 					serial_number:sn,
 					unit_type:u_type,
 					case_type:c_type,
+					case_problem:p_blem,
 					user_id:sess_user_id
 				},
 				function(data)
 				{
 					message_alert('Case Detail is Updated!');
+				}
+			);
+		});
+		
+		$('#update_customer_detail').click(function(){
+			cust_id=$('#customer_id_text').val();
+			c_name=$('#customer_name_text').val();
+			c_address=$('#customer_address').val();
+			c_phone=$('#phone_number_text').val();
+			c_phone2=$('#phone_number2_text').val();
+			c_id=$('#case_id_text').val();
+			$.post('<?php echo site_url('adminpanels/case_control/update_customer_data');?>',
+				{
+					customer_id:cust_id,
+					customer_name:c_name,
+					customer_address:c_address,
+					customer_phone:c_phone,
+					customer_phone2:c_phone2,
+					case_id:c_id,
+					user_id:sess_user_id
+				},
+				function(data)
+				{
+					message_alert('Customer Data is Updated!');	
 				}
 			);
 		});
@@ -199,6 +221,11 @@
 				}
 			);
 		});
+		
+		$('.request_part_case').click(function(){
+			c_id=$(this).attr('idnya');
+			$('.scrolling_item').load('<?php echo site_url('adminpanels/case_control/update_case');?>/'+c_id);
+		});
 	});
 </script>
 <div class="innerbody" style="width:30%;" id="group_search_panel">
@@ -228,7 +255,7 @@
                     <td><?php echo $rowsreq->bad_part_sn;?></td>
                    	<td><?php echo $rowsreq->oem_part_sn;?></td>
                    	
-                    <td><?php echo $rowsreq->case_id;?></td>
+                    <td><a href="javascript:void(0);" class="request_part_case" idnya="<?php echo $rowsreq->case_id;?>"><?php echo $rowsreq->case_id;?></a></td>
                     <td><?php echo $rowsreq->sure_name;?></td>
                     <td><?php echo $this->global_model->get_case_type($rowsreq->case_type);?></td>
                 </tr>
