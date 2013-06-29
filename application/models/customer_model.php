@@ -8,6 +8,7 @@ class Customer_model extends CI_Model {
 	
 	function get_all()
 	{
+		$this->db->group_by('customer_name');
 		$query=$this->db->get('customer');
 		return $query->result();
 	}
@@ -20,5 +21,12 @@ class Customer_model extends CI_Model {
 		$this->db->set('customer_phone2',$this->customer_phone2);
 		$this->db->insert('customer');
 		return $this->db->insert_id();	
+	}
+	
+	function get_by_name($customer_name)
+	{
+		$this->db->where('customer_name',$customer_name);
+		$query=$this->db->get('customer');
+		return $query->row();
 	}
 }

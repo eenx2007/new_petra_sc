@@ -26,6 +26,38 @@ class Case_control extends CI_Controller {
 		$this->load->view('admin_include/case_today',$data);
 	}
 	
+	function search_case()
+	{
+		$row=$this->case_model->get_by_case_id($this->input->post('case_id'));
+		if($row=='error')
+			$kembali=array('error'=>1);
+		else
+		{
+			$kembali=array(
+							'error'=>0,
+							'case_id'=>$row->case_id,
+							'create_date'=>mdate('%d/%m/%Y %h:%i:%s',$row->create_date),
+							'customer_id'=>$row->customer_id,
+							'customer_name'=>$row->customer_name,
+							'phone_number'=>$row->customer_phone,
+							'phone_number2'=>$row->customer_phone2,
+							'customer_address'=>$row->customer_address,
+							'serial_number'=>$row->serial_number,
+							'unit_type'=>$row->unit_type,
+							'case_type'=>$this->global_model->get_case_type($row->case_type),
+							'case_status'=>$this->global_model->get_case_status($row->case_status),
+							'creator'=>$row->sure_name,
+							'case_type_id'=>$row->case_type,
+							'assign_to'=>$row->assign_to,
+							'symptom'=>$row->description,
+							'case_problem'=>$row->case_problem,
+							'remarks'=>$row->remarks,
+							'completeness'=>$row->completeness
+							);
+		}
+		echo json_encode($kembali);
+	}
+	
 	function get_pending_on_hand()
 	{
 		$queryeng=$this->global_model->get_all_engineer();

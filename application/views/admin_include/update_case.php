@@ -31,76 +31,54 @@
 		});
 		
 		<?php if($case_id==0): ?>
-		$('#search_case').click(function(){
-			c_id=$('#case_id').val();
-			$.post('<?php echo site_url('engineers/case_control/search_case');?>',
-				{
-					case_id:c_id
-				},
-				function(data)
-				{
-					if(data.error==1)
-						message_alert('Case not found');
-					else if(data.error==0)
-					{
-						
-						$('#list_part_requested').hide();
-						$('#tabsnya').fadeIn();
-						$('#case_id_text').val(data.case_id);
-						$('#create_date_text').val(data.create_date);
-						$('#customer_name_text').val(data.customer_name);
-						$('#phone_number_text').val(data.phone_number);
-						$('#serial_number_text').val(data.serial_number);
-						$('#unit_type_text').val(data.unit_type);
-						$('#case_type_text').val(data.case_type_id);
-						$('#case_status_text').val(data.case_status);
-						$('#engineer_trans').val(data.assign_to);
-						$('#creator_text').val(data.creator);
-						$('#component_detailnya').attr('src',data.comp_detail);
-						$('#symptom').val(data.symptom);
-						$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
-						$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case');?>/'+c_id);
-					}
-				},
-				'json'
-			);
-		});
+			$('#search_case').click(function(){
+				c_id=$('#case_id').val();
+				do_the_search(c_id);
+			});
 		<?php else: ?>
 			c_id='<?php echo $case_id;?>';
-			$('#case_id').val(c_id);
-			$.post('<?php echo site_url('engineers/case_control/search_case');?>',
-				{
-					case_id:c_id
-				},
-				function(data)
-				{
-					if(data.error==1)
-						message_alert('Case not found');
-					else if(data.error==0)
+			do_the_search(c_id);
+		<?php endif;?>	
+			function do_the_search(c_id)
+			{
+				$('#case_id').val(c_id);
+				$.post('<?php echo site_url('adminpanels/case_control/search_case');?>',
 					{
-						
-						$('#list_part_requested').hide();
-						$('#tabsnya').fadeIn();
-						$('#case_id_text').val(data.case_id);
-						$('#create_date_text').val(data.create_date);
-						$('#customer_name_text').val(data.customer_name);
-						$('#phone_number_text').val(data.phone_number);
-						$('#serial_number_text').val(data.serial_number);
-						$('#unit_type_text').val(data.unit_type);
-						$('#case_type_text').val(data.case_type_id);
-						$('#case_status_text').val(data.case_status);
-						$('#engineer_trans').val(data.assign_to);
-						$('#creator_text').val(data.creator);
-						$('#component_detailnya').attr('src',data.comp_detail);
-						$('#symptom').val(data.case_problem);
-						$('#remarks_text').val(data.remarks);
-						$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
-						$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case');?>/'+c_id);
-					}
-				},
-				'json'
-			);
-		<?php endif;?>
+						case_id:c_id
+					},
+					function(data)
+					{
+						if(data.error==1)
+							message_alert('Case not found');
+						else if(data.error==0)
+						{
+							
+							$('#list_part_requested').hide();
+							$('#tabsnya').fadeIn();
+							$('#case_id_text').val(data.case_id);
+							$('#create_date_text').val(data.create_date);
+							$('#customer_id_text').val(data.customer_id);
+							$('#customer_name_text').val(data.customer_name);
+							$('#phone_number_text').val(data.phone_number);
+							$('#phone_number2_text').val(data.phone_number2);
+							$('#customer_address').val(data.customer_address);
+							$('#serial_number_text').val(data.serial_number);
+							$('#unit_type_text').val(data.unit_type);
+							$('#case_type_text').val(data.case_type_id);
+							$('#case_status_text').val(data.case_status);
+							$('#engineer_trans').val(data.assign_to);
+							$('#creator_text').val(data.creator);
+							$('#component_detailnya').attr('src',data.comp_detail);
+							$('#symptom').val(data.case_problem);
+							$('#remarks_text').val(data.remarks);
+							$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
+							$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case');?>/'+c_id);
+						}
+					},
+					'json'
+				);
+			}
+		
 		$("a.tab").click(function () {  
 	  
 			// switch all tabs off  
@@ -223,7 +201,7 @@
 		});
 	});
 </script>
-<div class="innerbody" style="width:30%;">
+<div class="innerbody" style="width:30%;" id="group_search_panel">
 	<div class="dashboard_item" id="search_panel" style="width:90%;">
     	<div class="dashboard_item_title">Search Case</div>
         <div class="dashboard_item_content">
@@ -237,7 +215,7 @@
     </div>
 </div>
 
-<div class="innerbody" style="width:70%;">
+<div class="innerbody" style="width:70%;" id="group_result_panel">
 	<div class="dashboard_item" id="list_part_requested">
     	<div class="dashboard_item_title">Part Requested by Engineer</div>
         <div class="dasbhoard_item_content">
@@ -262,6 +240,7 @@
     <div id="tabsnya" class="tabbed_area" style="width:90%;">
     	<ul class="tabs">
         	<li><a href="javascript:void(0);" gototab="#case_detail_tab" class="tab active">Case Detail</a></li>
+            <li><a href="javascript:void(0);" gototab="#customer_detail_tab" class="tab">Customer Detail</a></li>
             <li><a href="javascript:void(0);" gototab="#return_from_rc" class="tab">&lt RC</a></li>
             <li><a href="javascript:void(0);" gototab="#transfer_case_tab" class="tab">Transfer Case</a></li>
             <li><a href="javascript:void(0);" gototab="#part_in_case_tab" class="tab">Part Request</a></li>
@@ -270,10 +249,9 @@
         </ul>
         <div id="case_detail_tab" class="content_tab">
        		<table class="main_table">
-            	<tr><td>Case ID</td><td><input type="text" name="case_id_text" id="case_id_text" disabled="disabled" /></td></tr>
+            	
+            	<tr><td style="width:30%;">Case ID</td><td><input type="text" name="case_id_text" id="case_id_text" disabled="disabled" /></td></tr>
                 <tr><td>Date In</td><td><input type="text" name="create_date_text" id="create_date_text" disabled="disabled" /></td></tr>
-                <tr><td>Customer Name</td><td><input type="text" name="customer_name_text" id="customer_name_text" /></td></tr>
-                <tr><td>Phone Number</td><td><input type="text" name="phone_number_text" id="phone_number_text" /></td></tr>
                 <tr><td>Serial Number</td><td><input type="text" name="serial_number_text" id="serial_number_text" /></td></tr>
                 <tr><td>Unit Type</td><td><input type="text" name="unit_type_text" id="unit_type_text" /></td></tr>
                 <tr><td>Case Type</td><td><?php $case_type_text=array('0'=>'Warranty','1'=>'Out of Warranty'); echo form_dropdown('case_type_text',$case_type_text,'','id="case_type_text"');?></td></tr>
@@ -281,10 +259,19 @@
                 <tr><td>Remarks</td><td><input type="text" name="remarks_text" id="remarks_text" /></td></tr>
                 <tr><td>Case Status</td><td><input type="text" name="case_status_text" id="case_status_text" disabled="disabled" style="color:#F00;" /></td></tr>
                 <tr><td>Creator</td><td><input type="text" name="creator_text" id="creator_text" disabled="disabled" /></td></tr>
-                <tr><td colspan="2"><button id="update_case_detail">Update Detail</button></td></tr>
+                <tr><td colspan="2"><button id="update_case_detail">Update Case Detail</button></td></tr>
             </table>
         </div>
-        
+        <div id="customer_detail_tab" class="content_tab">
+        	<table class="main_table">
+            	<tr><td>Customer ID</td><td><input type="text" name="customer_id_text" id="customer_id_text" disabled="disabled" /></td></tr>
+                <tr><td>Customer Name</td><td><input type="text" name="customer_name_text" id="customer_name_text" /></td></tr>
+                <tr><td>Phone Number</td><td><input type="text" name="phone_number_text" id="phone_number_text" /></td></tr>
+                <tr><td>Phone Number 2</td><td><input type="text" name="phone_number2_text" id="phone_number2_text" /></td></tr>
+                <tr><td>Address</td><td><textarea id="customer_address" style="width:90%;"></textarea></td></tr>
+                <tr><td colspan="2"><button id="update_customer_detail">Update Customer Data</button></td></tr>
+            </table>
+        </div>
         <div id="return_from_rc" class="content_tab">
         	<table class="main_table">
             	<tr>

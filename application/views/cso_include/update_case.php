@@ -101,22 +101,24 @@
 			);
 		<?php endif;?>
 		$("a.tab").click(function () {  
-	  
-			// switch all tabs off  
-			$(".active").removeClass("active");  
-	  
-			// switch this tab on  
-			$(this).addClass("active");  
-	  
-			// slide all elements with the class 'content' up  
-			$(".content_tab").hide();  
-	  
-			// Now figure out what the 'title' attribute value is and find the element with that id.  Then slide that down.  
-			var content_show = $(this).attr("gototab");  
-	  		$(content_show).show();
-			setTimeout(function(){
-						generate_scroller();
-			},500);
+	  		if($(this).attr('for_user')=='this')
+			{
+				// switch all tabs off  
+				$(".active").removeClass("active");  
+		  
+				// switch this tab on  
+				$(this).addClass("active");  
+		  
+				// slide all elements with the class 'content' up  
+				$(".content_tab").hide();  
+		  
+				// Now figure out what the 'title' attribute value is and find the element with that id.  Then slide that down.  
+				var content_show = $(this).attr("gototab");  
+				$(content_show).show();
+				setTimeout(function(){
+							generate_scroller();
+				},500);
+			}
 		});
 		
 		$('#submit_log').click(function(){
@@ -141,7 +143,7 @@
 			);
 		});
 		$('#back_to_pending').click(function(){
-			$('.scrolling_item').load('<?php echo site_url('csos/case_control/pending_management');?>#tombol_<?php echo $case_id;?>');
+			$('.scrolling_item').load('<?php echo site_url('csos/case_control/pending_quotation');?>/'+sess_user_id);
 		});
 		
 		$('#update_case_detail').click(function(){
@@ -258,10 +260,10 @@
     
     <div id="tabsnya" class="tabbed_area" style="width:90%;">
     	<ul class="tabs">
-        	<li><a href="javascript:void(0);" gototab="#case_detail_tab" class="tab active">Case Detail</a></li>
+        	<li><a href="javascript:void(0);" gototab="#case_detail_tab" class="tab">Case Detail</a></li>
             <li><a href="javascript:void(0);" gototab="#return_from_rc" class="tab">&lt RC</a></li>
             <li><a href="javascript:void(0);" gototab="#transfer_case_tab" class="tab">Transfer Case</a></li>
-            <li><a href="javascript:void(0);" gototab="#part_in_case_tab" class="tab">Part Request</a></li>
+            <li><a href="javascript:void(0);" gototab="#part_in_case_tab" class="tab active" for_user="this">Part Request</a></li>
             <li><a href="javascript:void(0);" gototab="#log_info_tab" class="tab">Log Info</a></li>
             <li><a href="javascript:void(0);" gototab="#quick_update_tab" class="tab">Change Status</a></li>
         </ul>

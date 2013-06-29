@@ -4,6 +4,21 @@
 			$('#customer_name').autocomplete({
 				source:all_cust
 			});
+		$('#customer_name').blur(function(){
+			c_name=$(this).val();
+			$.post('<?php echo site_url('csos/case_control/search_by_cname');?>',
+				{
+					customer_name:c_name
+				},
+				function(data)
+				{
+					$('#customer_address').val(data.customer_address);
+					$('#phone_number').val(data.customer_phone);
+					$('#phone_number2').val(data.customer_phone2);
+				},
+				'json'
+			);
+		});
         $('#save_case').click(function(){
 			var start_timenya='<?php echo time();?>';
 			

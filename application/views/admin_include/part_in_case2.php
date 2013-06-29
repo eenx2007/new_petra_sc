@@ -33,7 +33,7 @@
 				{
 					part_request_id:idnya,
 					request_status:updatenya,
-					proposal_id:p_idnya
+					proposal_id:p_idnya,
 					case_id:c_id,
 					user_id:sess_user_id
 				},

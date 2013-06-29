@@ -17,6 +17,13 @@ class Case_control extends CI_Controller {
 		$this->load->view('cso_include/new_case',$data);
 	}
 	
+	function search_by_cname()
+	{
+		$row=$this->customer_model->get_by_name($this->input->post('customer_name'));	
+		$kembali=array('customer_address'=>$row->customer_address,'customer_phone'=>$row->customer_phone,'customer_phone2'=>$row->customer_phone2);
+		echo json_encode($kembali);
+	}
+	
 	function cancel_case()
 	{
 		$this->session->unset_userdata('start_time');	
