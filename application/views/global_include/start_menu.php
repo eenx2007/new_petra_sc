@@ -77,6 +77,7 @@
     <?php echo $this->global_model->menu_item('new_case.png','Assigning',site_url('adminpanels/case_control/case_today'));?>
     <?php echo $this->global_model->menu_item('marker.png','Unit Location',site_url('adminpanels/location_control/location_management'));?>
 	<?php echo $this->global_model->menu_item('awaiting_part.png','RC Preparation',site_url('adminpanels/location_control/rc_preparation'));?>
+    <?php echo $this->global_model->menu_item('rc_management.png','RC Management',site_url('adminpanels/location_control/rc_management'));?>
     <?php echo $this->global_model->menu_item('resolving_today.png','Finish Case',site_url('adminpanels/case_control/resolving_today'));?>           
     <?php echo $this->global_model->menu_item('pending.png','Pending',site_url('adminpanels/case_control/pending_management'));?>
     <?php echo $this->global_model->menu_item('export_out.png','Export Data',site_url('adminpanels/report_control/export_case_out_data'));?>
@@ -106,7 +107,8 @@
     
 <?php endif;?>
 <?php echo $this->global_model->menu_item('check_case.png','Search Case',site_url('program/check_case'));?>
-<a href="<?php echo base_url();?>"><div class="menu_item" style="background:url(<?php echo base_url();?>assets/images/menu_bg_red.png) repeat-y;border:1px solid #C5365D;">
+<a href="<?php echo base_url();?>">
+<div class="menu_item" style="background:url(<?php echo base_url();?>assets/images/menu_bg_red.png) repeat-y;border:1px solid #C5365D;">
 	<div class="image_placer"><img src="<?php echo base_url();?>assets/images/logout.png" /></div>
     <div class="text_placer">Logout</div>
 </div></a>

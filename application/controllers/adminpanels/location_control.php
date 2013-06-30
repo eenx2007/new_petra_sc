@@ -47,4 +47,18 @@ class Location_control extends CI_Controller {
 	{
 		$this->load->view('admin_include/return_from_rc');	
 	}
+	
+	function rc_management()
+	{
+		$data['query']=$this->location_model->get_rc();
+		$this->load->view('admin_include/rc_management',$data);	
+	}
+	
+	function add_new()
+	{
+		$this->location_model->location_id=$this->input->post('location_id');
+		$this->location_model->location_name=$this->input->post('location_name');
+		$this->location_model->location_address=$this->input->post('location_address');
+		$this->location_model->add_new_location();		
+	}
 }

@@ -32,7 +32,25 @@ class Proposal_model extends CI_Model {
 	
 	function get_by_id($case_id)
 	{
-		$this->db->where('case_id',$case_id);
+		$this->db->where('proposal.case_id',$case_id);
+		$this->db->join('the_case','the_case.case_id=proposal.case_id');
+		$this->db->join('customer','customer.customer_id=the_case.customer_id');
+		$query=$this->db->get('proposal');
+		$totalcek=$query->num_rows;
+		if($totalcek==0)
+			return "0";
+		else
+		{
+			$rowcek=$query->row();	
+			return $rowcek;
+		}
+	}
+	
+	function get_by_proposal_id($proposal_id)
+	{
+		$this->db->where('proposal.proposal_id',$proposal_id);
+		$this->db->join('the_case','the_case.case_id=proposal.case_id');
+		$this->db->join('customer','customer.customer_id=the_case.customer_id');
 		$query=$this->db->get('proposal');
 		$totalcek=$query->num_rows;
 		if($totalcek==0)

@@ -12,7 +12,7 @@
 
 <div class="innerbody2" id="search_panel">
 	<div class="dashboard_item">
-    	<div class="dashboard_item_title">Manajemen Lokasi Unit</div>
+    	<div class="dashboard_item_title">Location Management</div>
         <div class="dashboard_item_content">
         	<table class="main_table">
             	<tr>

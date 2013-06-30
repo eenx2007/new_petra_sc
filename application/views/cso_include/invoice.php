@@ -32,8 +32,10 @@ div.Section1 { page:Section1; }
         </th>
     </tr>
 </table>
-<table style="width:100%;">
-	<tr><td>Invoice Number I-<?php echo $proposal_id;?> / <?php echo date('d-m-Y');?><input type="hidden" id="proposal_id_hidden" value="<?php echo $proposal_id;?>" /></td></tr>
+<table style="width:50%;">
+	<tr><td colspan="2">Invoice Number I-<?php echo $proposal_id;?> / <?php echo date('d-m-Y');?><input type="hidden" id="proposal_id_hidden" value="<?php echo $proposal_id;?>" /></td></tr>
+    <tr><td>Kepada YTH</td><td>: <?php echo $row->customer_name;?></td></tr>
+    <tr><td></td><td>: <?php echo $row->customer_address;?></td></tr>
 </table>
 
 <table style="width:100%;">

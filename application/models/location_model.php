@@ -92,4 +92,12 @@ class Location_model extends CI_Model {
 		$query=$this->db->get('ready_to_transfer');
 		return $query->result();	
 	}
+	
+	function add_new_location()
+	{
+		$this->db->set('location_id',$this->location_id);
+		$this->db->set('location_name',$this->location_name);
+		$this->db->set('location_address',$this->location_address);	
+		$this->db->insert('location');
+	}
 }

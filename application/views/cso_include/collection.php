@@ -24,20 +24,27 @@
 					}
 					else if(data.error==0)
 					{
-						
-						$('#list_part_requested').hide();
-						$('#tabsnya').fadeIn();
-						$('#case_id_text').val(data.case_id);
-						$('#create_date_text').val(data.create_date);
-						$('#customer_name_text').val(data.customer_name);
-						$('#phone_number_text').val(data.phone_number);
-						$('#serial_number_text').val(data.serial_number);
-						$('#unit_type_text').val(data.unit_type);
-						$('#case_type_text').val(data.case_type);
-						$('#case_status_text').val(data.case_status);
-						$('#creator_text').val(data.creator);
-						$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
-						$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case2');?>/'+c_id);
+						if(data.case_status=="Ready to Ship")
+						{
+							$('#list_part_requested').hide();
+							$('#tabsnya').fadeIn();
+							$('#case_id_text').val(data.case_id);
+							$('#create_date_text').val(data.create_date);
+							$('#customer_name_text').val(data.customer_name);
+							$('#phone_number_text').val(data.phone_number);
+							$('#serial_number_text').val(data.serial_number);
+							$('#unit_type_text').val(data.unit_type);
+							$('#case_type_text').val(data.case_type);
+							$('#case_status_text').val(data.case_status);
+							$('#creator_text').val(data.creator);
+							$('#log_details').load('<?php echo site_url('engineers/case_control/get_case_log');?>/'+c_id);
+							$('#part_in_case_tab').load('<?php echo site_url('adminpanels/part_control/part_in_case2');?>/'+c_id);
+						}
+						else
+						{
+							alert('Case is not ready to ship!');
+							back_to_dashboard();
+						}
 					}
 				},
 				'json'

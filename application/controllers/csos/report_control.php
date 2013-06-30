@@ -48,6 +48,7 @@ class Report_control extends CI_Controller {
 		//$this->load->library('pdf');
 		$check_proposal=$proposal_id;
 		$data['proposal_id']=$check_proposal;
+		$data['row']=$this->proposal_model->get_by_proposal_id($proposal_id);
 		$data['query']=$this->proposal_model->get_by_proposal($check_proposal);
 		$data['query2']=$this->proposal_model->get_by_proposal2($check_proposal);
 		$data['discount']=0;
