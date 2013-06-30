@@ -64,4 +64,19 @@ class Report_control extends CI_Controller {
 		
 		echo $output;
 	}
+	
+	function print_service_report($case_id)
+	{
+		$data['row']=$this->case_model->get_by_case_id($case_id);
+		//$filepdf=$this->load->view('cso_include/srf',$data,TRUE);
+		//$this->pdf->pdf_create($filepdf,'Service Request Form');
+		$output = $this->load->view("cso_include/service_report", $data,TRUE);
+		header("Content-Type: application/vnd.ms-word");
+	    header("Expires: 0");
+   		header("Cache-Control:  must-revalidate, post-check=0, pre-check=0");
+   		header('Content-disposition: attachment; filename="SR'.$case_id.'.doc"');
+
+   		
+   		echo $output;	
+	}
 }

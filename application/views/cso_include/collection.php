@@ -71,6 +71,16 @@
 			c_id=$('#case_id').val();
 			new_status=$('#new_status').val();
 			ship_note=$('#ship_note').val();
+			service_report=$('#service_report').val();
+			if(service_report==1)
+			{
+				var windowSizeArray = [ "width=200,height=200",
+										"width=300,height=400,scrollbars=yes" ];
+				var url = '<?php echo site_url('csos/report_control/print_service_report');?>/'+c_id;
+				var windowName = "popUp";//$(this).attr("name");
+				var windowSize = windowSizeArray[$(this).attr("rel")];
+				window.open(url, windowName, windowSize);	
+			}
 			$.post('<?php echo site_url('csos/case_control/force_close');?>',
 				{
 					case_id:c_id,
@@ -220,6 +230,7 @@
         	<table class="main_table">
             	<tr><td>Log Info</td><td><textarea name="ship_note" id="ship_note"></textarea></td></tr>
                 <tr><td>New Status</td><td><?php $new_status=array('12'=>'Close'); echo form_dropdown('new_status',$new_status,'','id="new_status"');?></td></tr>
+                <tr><td>Service Report</td><td><?php $service_report=array('0'=>'No','1'=>'Yes'); echo form_dropdown('service_report',$service_report,'','id="service_report"');?></td></tr>
                 <tr><td colspan="2"><button id="force_close_btn">Save</button></td></tr>
             </table>
         </div>
