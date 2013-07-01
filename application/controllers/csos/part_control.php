@@ -39,15 +39,22 @@ class Part_control extends CI_Controller {
 		$this->customer_model->customer_phone2=$this->input->post('customer_phone2');
 		$id_user=$this->customer_model->save_new();
 		
-		$this->proposal_model->case_id='no_case';
+		$this->proposal_model->case_id='no_case_'.$id_user;
 		$this->proposal_model->propsal_dp=$this->input->post('total_down_payment');
 		$proposal_number=$this->proposal_model->create_new_sell();
 		
+		echo $proposal_number;
+	}
+	
+	function new_part_request()
+	{
 		$this->part_request_model->part_number=$this->input->post('part_number');
-		$this->part_request_model->case_id=$proposal_number;
+		$this->part_request_model->case_id=$this->input->post('proposal_id');
 		$this->part_request_model->user_id=$this->input->post('user_id');
 		$this->part_request_model->bad_part_sn='part_sell';
-		$this->part_request_model->oem_part_sn=$this->input->post('request_qty');
-		$this->part_request_model->new_part_request();
+		$this->part_request_model->oem_part_sn=$this->input->post('oem_part_sn');
+		$part_request_id=$this->part_request_model->new_part_request2();
+		
+		$this->proposal_model->add_detail3($part_request_id,$this->input->post('proposal_id'),$this->input->post('part_price'));
 	}
 }

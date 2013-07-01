@@ -62,6 +62,20 @@ class Proposal_model extends CI_Model {
 		}
 	}
 	
+	function get_by_proposal_id2($proposal_id)
+	{
+		$this->db->where('proposal.proposal_id',$proposal_id);
+		$query=$this->db->get('proposal');
+		$totalcek=$query->num_rows;
+		if($totalcek==0)
+			return "0";
+		else
+		{
+			$rowcek=$query->row();	
+			return $rowcek;
+		}
+	}
+	
 	function add_detail($part_request_id,$proposal_id)
 	{
 		$this->db->where('part_request.part_request_id',$part_request_id);
@@ -87,6 +101,14 @@ class Proposal_model extends CI_Model {
 		$this->db->insert('det_proposal');	
 	}
 	
+	function add_detail3($part_request_id,$proposal_id,$part_price)
+	{
+		$this->db->set('proposal_id',$proposal_id);
+		$this->db->set('part_request_id',$part_request_id);
+		$this->db->set('det_price',$part_price);
+		$this->db->insert('det_proposal');
+	}
+	
 	function get_by_proposal($proposal_id)
 	{
 		$this->db->where('det_proposal.proposal_id',$proposal_id);
@@ -104,11 +126,29 @@ class Proposal_model extends CI_Model {
 		return $query->result();
 	}
 	
+	function get_by_proposal3($proposal_id)
+	{
+		$this->db->where('det_proposal.proposal_id',$proposal_id);
+		$this->db->join('part_request','part_request.part_request_id=det_proposal.part_request_id');
+		$query=$this->db->get('det_proposal');
+		return $query->result();
+	}
+	
+	
+	
 	function update_to_invoice($proposal_id)
 	{
 		$this->db->set('proposal_status',1);
 		$this->db->where('proposal_id',$proposal_id);
 		$this->db->update('proposal');	
+	}
+	
+	function update_dp_to_invoice($proposal_id,$total_dp)
+	{
+		$this->db->set('proposal_status',2);
+		$this->db->set('proposal_dp',$total_dp);
+		$this->db->where('proposal_id',$proposal_id);
+		$this->db->update('proposal');
 	}
 	
 	function get_total_price($proposal_id)

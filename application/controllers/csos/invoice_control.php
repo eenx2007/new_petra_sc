@@ -21,11 +21,30 @@ class Invoice_control extends CI_Controller {
 		$this->load->view('cso_include/get_invoice',$data);
 	}
 	
+	function update_dp_proposal()
+	{
+		$this->proposal_model->update_dp_to_invoice($this->input->post('proposal_id'),$this->input->post('total_dp'));
+		//saving the transaction
+			$this->transaction_model->transaction_title='Income from Invoice I'.$this->input->post('proposal_id');
+			$this->transaction_model->transaction_total=$this->input->post('total_dp');
+			$this->transaction_model->transaction_type=0;
+			$this->transaction_model->transaction_reff='invoicing part sale';
+			$this->transaction_model->transaction_user=$this->input->post('user_id');
+			$this->transaction_model->new_transaction();
+	}
+	
 	function det_proposal_update($proposal_id)
 	{
 		$data['query']=$this->proposal_model->get_by_proposal($proposal_id);
 		$data['query2']=$this->proposal_model->get_by_proposal2($proposal_id);
 		$this->load->view('cso_include/det_invoice_update',$data);	
+	}
+	
+	function temp_invoice_detail($proposal_id)
+	{
+		$data['proposal_id']=$proposal_id;
+		$data['query']=$this->proposal_model->get_by_proposal3($proposal_id);
+		$this->load->view('cso_include/temp_invoice_detail',$data);
 	}
 	
 }

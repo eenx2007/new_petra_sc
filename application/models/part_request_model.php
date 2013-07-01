@@ -25,6 +25,20 @@ class Part_request_model extends CI_Model {
 		$this->db->insert('part_request');
 	}
 	
+	function new_part_request2()
+	{
+		$this->db->set('part_number',$this->part_number);
+		$this->db->set('case_id',$this->case_id);
+		$this->db->set('user_id',$this->user_id);
+		$this->db->set('request_date',time());
+		$this->db->set('request_status',0);
+		$this->db->set('bad_part_sn',$this->bad_part_sn);
+		$this->db->set('oem_part_sn',$this->oem_part_sn);
+		$this->db->insert('part_request');
+		
+		return $this->db->insert_id();
+	}
+	
 	function get_by_case_id($case_id)
 	{
 		$this->db->where('case_id',$case_id);

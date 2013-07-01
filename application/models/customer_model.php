@@ -30,6 +30,13 @@ class Customer_model extends CI_Model {
 		return $query->row();
 	}
 	
+	function get_by_id($customer_id)
+	{
+		$this->db->where('customer_id',$customer_id);
+		$query=$this->db->get('customer');
+		return $query->row();	
+	}
+	
 	function update_by_id($customer_id)
 	{
 		$this->db->set('customer_name',$this->customer_name);
