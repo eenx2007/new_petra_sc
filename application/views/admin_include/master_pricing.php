@@ -73,3 +73,11 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(e) {
+        setTimeout(function(){
+						generate_scroller();
+			},500);
+    });
+</script>

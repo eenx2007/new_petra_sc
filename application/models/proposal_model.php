@@ -134,7 +134,14 @@ class Proposal_model extends CI_Model {
 		return $query->result();
 	}
 	
-	
+	function get_by_proposal4($proposal_id)
+	{
+		$this->db->where('det_proposal.proposal_id',$proposal_id);
+		$this->db->where('part_request.request_status',0);
+		$this->db->join('part_request','part_request.part_request_id=det_proposal.part_request_id');
+		$query=$this->db->get('det_proposal');
+		return $query->result();
+	}
 	
 	function update_to_invoice($proposal_id)
 	{
@@ -149,6 +156,13 @@ class Proposal_model extends CI_Model {
 		$this->db->set('proposal_dp',$total_dp);
 		$this->db->where('proposal_id',$proposal_id);
 		$this->db->update('proposal');
+	}
+	
+	function update_clear_to_invoice($proposal_id)
+	{
+		$this->db->set('proposal_status',3);
+		$this->db->where('proposal_id',$proposal_id);
+		$this->db->update('proposal');	
 	}
 	
 	function get_total_price($proposal_id)

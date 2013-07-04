@@ -18,4 +18,17 @@ class Transaction_model extends CI_Model {
 		$this->db->set('transaction_user',$this->transaction_user);
 		$this->db->insert('transaction_list');	
 	}
+	
+	function get_by_date($start_date,$end_date)
+	{
+		$startnya=human_to_unix($start_date.' 00:00:00');
+		$endnya=human_to_unix($end_date.' 23:59:59');
+		$this->db->where('transaction_list.transaction_date >=',$startnya);
+		$this->db->where('transaction_list.transaction_date <=',$endnya);
+		$this->db->join('user','user.user_id=transaction_list.transaction_user');
+		$this->db->order_by('transaction_list.transaction_id');
+		$query=$this->db->get('transaction_list');
+		return $query->result();
+			
+	}
 }

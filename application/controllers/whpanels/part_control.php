@@ -106,4 +106,29 @@ class Part_control extends CI_Controller {
 		$this->load->view('wh_include/issued_to_fd',$data);	
 	}
 	
+	function search_inv($proposal_id)
+	{
+		$part_numbernya='';
+		$query=$this->the_part_model->get_stock();
+		foreach($query as $rows)
+		{
+			$part_numbernya.='"'.$rows->part_number.'",';	
+		}
+		$part_numbernya.='"-"';
+		$data['part_numbernya']=$part_numbernya;
+		$data['query']=$this->proposal_model->get_by_proposal4($proposal_id);
+		$this->load->view('wh_include/search_result_inv',$data);	
+	}
+	
+	function release_part_inv()
+	{
+		$this->part_request_model->part_released=$this->input->post('part_released');
+		$this->part_request_model->good_part_sn=$this->input->post('good_part_sn');
+		$this->part_request_model->release_part($this->input->post('part_request_id'));
+		
+		
+		
+		$this->the_part_model->stock_out($this->input->post('part_released'),'8001',1);
+	}	
+	
 }

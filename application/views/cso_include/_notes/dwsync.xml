@@ -14,7 +14,16 @@
 <file name="det_invoice_update.php" server="//192.168.11.23/xampp/htdocs/new_petra_sc/" local="130118524109415083" remote="130118524100000000" />
 <file name="get_invoice.php" server="//192.168.11.23/xampp/htdocs/new_petra_sc/" local="130118524005834297" remote="130118524000000000" />
 <file name="invoice.php" server="//192.168.11.23/xampp/htdocs/new_petra_sc/" local="130118535147990202" remote="130118535140000000" />
-<file name="srf.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130155353247210927" remote="130155353240000000" />
-<file name="collection.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130155406368782709" remote="130155406360000000" />
-<file name="invoice.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130155436373359751" remote="130155436370000000" />
+<file name="srf.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130170930749610049" remote="130170930740000000" />
+<file name="collection.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130170940901337316" remote="130170940900000000" />
+<file name="invoice.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130170840462169097" remote="130170840460000000" />
+<file name="collection_invoice_detail.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130174030092900334" remote="130174030090000000" />
+<file name="collection_part.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130174007605560871" remote="130174007600000000" />
+<file name="invoice_clear.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130174032684063210" remote="130174032680000000" />
+<file name="invoice_dp.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130171848429537808" remote="130171848420000000" />
+<file name="new_case.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130170092605967519" remote="130170092600000000" />
+<file name="part_sale.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130171749476341387" remote="130171749470000000" />
+<file name="service_report.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130170938797560308" remote="130170938790000000" />
+<file name="temp_invoice_detail.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130174031686681136" remote="130174031680000000" />
+<file name="update_case.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130170056410000000" remote="130170056410000000" />
 </dwsync>

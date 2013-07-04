@@ -87,6 +87,28 @@ class Report_control extends CI_Controller {
 		echo $output;
 	}
 	
+	function print_clear_invoice($proposal_id)
+	{
+		$data['proposal_id']=$proposal_id;
+		$data['query']=$this->proposal_model->get_by_proposal3($proposal_id);
+		$row=$this->proposal_model->get_by_proposal_id2($proposal_id);
+		$data['row']=$row;
+		$pecah=explode('_',$row->case_id);
+		$customer_id=$pecah[2];
+		$data['rowcustomer']=$this->customer_model->get_by_id($customer_id);
+		$data['discount']=0;
+		$data['ppn']=0;
+		$output=$this->load->view('cso_include/invoice_clear',$data,TRUE);
+		//$filepdf=$this->load->view('cso_include/invoice',$data,TRUE);
+		//$this->pdf->pdf_create($filepdf,'Service Request Form');	
+		header("Content-Type: application/vnd.ms-word");
+	    header("Expires: 0");
+   		header("Cache-Control:  must-revalidate, post-check=0, pre-check=0");
+   		header('Content-disposition: attachment; filename="I-'.$proposal_id.'.doc"');
+		
+		echo $output;
+	}
+	
 	function print_service_report($case_id)
 	{
 		$data['row']=$this->case_model->get_by_case_id($case_id);

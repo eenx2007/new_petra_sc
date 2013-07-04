@@ -17,6 +17,11 @@
 <file name="location_model.php" server="//192.168.11.23/xampp/htdocs/new_petra_sc/" local="130117822722641197" remote="130117822720000000" />
 <file name="proposal_model.php" server="//192.168.11.23/xampp/htdocs/new_petra_sc/" local="130118512108816702" remote="130118512100000000" />
 <file name="the_part_model.php" server="//192.168.11.23/xampp/htdocs/new_petra_sc/" local="130118675672336745" remote="130118675670000000" />
-<file name="global_model.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130155433845247993" remote="130155433840000000" />
-<file name="location_model.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130155380610711734" remote="130155380610000000" />
+<file name="global_model.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130170834610000000" remote="130170834610000000" />
+<file name="location_model.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130170831364789618" remote="130170831360000000" />
+<file name="case_model.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130170118743294430" remote="130170118740000000" />
+<file name="customer_model.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130171841261278763" remote="130171841260000000" />
+<file name="part_request_model.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130173954928268882" remote="130173954920000000" />
+<file name="proposal_model.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130174025803570399" remote="130174025800000000" />
+<file name="transaction_model.php" server="C:/Users/Eenx/Documents/GDrive/Google Drive/Upload File/new_petra_sc/" local="130173109223382367" remote="130173109220000000" />
 </dwsync>

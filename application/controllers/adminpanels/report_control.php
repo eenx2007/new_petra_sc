@@ -35,6 +35,8 @@ class Report_control extends CI_Controller {
 	{
 		$start_date=urldecode($this->input->get('start_date'));
 		$end_date=urldecode($this->input->get('end_date'));
+		$data['start_date']=$start_date;
+		$data['end_date']=$end_date;
 		$report_type=$this->input->get('report_type');
 		if($report_type==0)
 		{
@@ -45,6 +47,19 @@ class Report_control extends CI_Controller {
 			$data['query']=$this->transaction_model->get_by_date($start_date,$end_date);
 			$this->load->view('admin_include/transaction_list',$data);
 		}
+	}
+	
+	function transaction_list_etx()
+	{
+		$start_date=urldecode($this->input->get('start_date'));
+		$end_date=urldecode($this->input->get('end_date'));
+		$data['query']=$this->transaction_model->get_by_date($start_date,$end_date);
+		$table=$this->load->view('admin_include/transaction_list_etx',$data,TRUE);
+		header('Content-type: application/vnd.ms-excel');
+		header("Content-Disposition: attachment; filename=transaction_list_".time().".xls");
+		header("Pragma: no-cache");
+		header("Expires: 0");
+		echo $table;
 	}
 	
 	function print_transfer($case_id,$location_id)

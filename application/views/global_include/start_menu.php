@@ -66,7 +66,8 @@
     </div>
 <?php if($this->session->userdata('user_type')==1): ?>
 	<?php echo $this->global_model->menu_item('new_case.png','New Case',site_url('csos/case_control/new_case'));?>
-    <?php echo $this->global_model->menu_item('collection.png','Collection',site_url('csos/case_control/collection'));?>          
+    <?php echo $this->global_model->menu_item('collection.png','Collection',site_url('csos/case_control/collection'));?>
+    <?php echo $this->global_model->menu_item('collection.png','Collection Part',site_url('csos/invoice_control/collection_part'));?>          
     <?php echo $this->global_model->menu_item('consultation.png','Consultation',site_url('csos/case_control/consultation'));?>
     <?php echo $this->global_model->menu_item('part_sale.png','Part Sale',site_url('csos/part_control/part_sale'));?>
     <?php echo $this->global_model->menu_item('pending.png','Pending Quote',site_url('csos/case_control/pending_quotation'));?>
@@ -92,6 +93,7 @@
     <?php echo $this->global_model->menu_item('buy_part.png','Buy Part',site_url('whpanels/part_control/buy_new_part'));?>
     <?php echo $this->global_model->menu_item('consumed_part.png','Part Enquiry',site_url('whpanels/part_control/part_enquiry'));?>
     <?php echo $this->global_model->menu_item('marker.png','Unit Location',site_url('adminpanels/location_control/location_management'));?>
+    <?php echo $this->global_model->menu_item('awaiting_part.png','RC Preparation',site_url('adminpanels/location_control/rc_preparation'));?>
     <?php echo $this->global_model->menu_item('no_defective_part.png','Shipping',site_url('wh_panel/shipping'));?>
     <?php echo $this->global_model->menu_item('export_out.png','Master Part',site_url('whpanels/part_control/master_part'));?>
 <?php elseif($this->session->userdata('user_type')==5): ?>
