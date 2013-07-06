@@ -43,7 +43,7 @@ div.Section1 { page:Section1; }
     <?php $i=0; $total_price=0;  foreach($query as $rows): $i++; ?>
     	<tr>
         	<td><?php echo $i;?></td>
-            <td><?php echo $rows->part_number;?></td>
+            <td><?php echo $rows->part_number;?> <?php echo $rows->good_part_sn;?></td>
             <td><?php echo number_format($rows->det_price,0,',','.');?></td>
             <td><?php echo $rows->oem_part_sn;?></td>
             <td><?php echo number_format($rows->det_price*$rows->oem_part_sn,0,',','.');?></td>

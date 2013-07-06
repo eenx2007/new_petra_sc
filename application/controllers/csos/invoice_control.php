@@ -26,7 +26,7 @@ class Invoice_control extends CI_Controller {
 		$this->proposal_model->update_dp_to_invoice($this->input->post('proposal_id'),$this->input->post('total_dp'));
 		//saving the transaction
 			$this->transaction_model->transaction_title='Income from Invoice I'.$this->input->post('proposal_id');
-			$this->transaction_model->transaction_total=$this->input->post('balance_price');
+			$this->transaction_model->transaction_total=$this->input->post('total_dp');
 			$this->transaction_model->transaction_type=0;
 			$this->transaction_model->transaction_reff='invoicing part sale';
 			$this->transaction_model->transaction_user=$this->input->post('user_id');
@@ -36,7 +36,12 @@ class Invoice_control extends CI_Controller {
 	function update_clear_proposal()
 	{
 		$this->proposal_model->update_clear_to_invoice($this->input->post('proposal_id'));
-		
+			$this->transaction_model->transaction_title='Income from Invoice I'.$this->input->post('proposal_id');
+			$this->transaction_model->transaction_total=$this->input->post('balance_price');
+			$this->transaction_model->transaction_type=0;
+			$this->transaction_model->transaction_reff='invoicing part sale';
+			$this->transaction_model->transaction_user=$this->input->post('user_id');
+			$this->transaction_model->new_transaction();
 	}
 	
 	function det_proposal_update($proposal_id)
