@@ -35,11 +35,13 @@
 		$('.wpib_use').click(function(){
 			pr_id=$(this).attr('idnya');
 			c_id=$('#case_id_text').val();
+			p_n=$(this).attr('pnnya');
 			u_to=5;
 			$.post('<?php echo site_url('engineers/part_control/update_part_request');?>',
 				{
 					part_request_id:pr_id,
-					update_to:u_to					
+					update_to:u_to,
+					part_number:p_n			
 				},
 				function(data)
 				{
@@ -51,11 +53,13 @@
 		$('.unused_use').click(function(){
 			pr_id=$(this).attr('idnya');
 			c_id=$('#case_id_text').val();
+			p_n=$(this).attr('pnnya');
 			u_to=8;
 			$.post('<?php echo site_url('engineers/part_control/update_part_request');?>',
 				{
 					part_request_id:pr_id,
-					update_to:u_to					
+					update_to:u_to,
+					part_number:p_n			
 				},
 				function(data)
 				{
@@ -78,8 +82,8 @@
             	<?php if($rows->request_status==2): ?>
                 	| <a href="javascript:void(0);" class="ok_use" idnya="<?php echo $rows->part_request_id;?>">OK</a> | 
                     <a href="javascript:void(0);" class="doa_use" idnya="<?php echo $rows->part_request_id;?>">DOA</a> | 
-                    <a href="javascript:void(0);" class="wpib_use" idnya="<?php echo $rows->part_request_id;?>">WPIB</a> |
-                    <a href="javascript:void(0);" class="unused_use" idnya="<?php echo $rows->part_request_id;?>">Unused</a>
+                    <a href="javascript:void(0);" class="wpib_use" idnya="<?php echo $rows->part_request_id;?>" pnnya="<?php echo $rows->part_released;?>">WPIB</a> |
+                    <a href="javascript:void(0);" class="unused_use" idnya="<?php echo $rows->part_request_id;?>" pnnya="<?php echo $rows->part_released;?>">Unused</a>
                 <?php endif;?>
             </td>
             

@@ -26,6 +26,16 @@ class Part_control extends CI_Controller {
 	function update_part_request()
 	{
 		$this->part_request_model->update_part_use($this->input->post('part_request_id'),$this->input->post('update_to'));	
+		$update_type=$this->input->post('update_to');
+		if($update_type==8)
+		{
+			$this->the_part_model->stock_back_in($this->input->post('part_number'),1);	
+		}
+		elseif($update_type==5)
+		{
+			$this->the_part_model->stock_back_in($this->input->post('part_number'),1);	
+		}
+		
 	}
 	
 }

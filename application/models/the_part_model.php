@@ -145,4 +145,19 @@ class The_part_model extends CI_Model {
 			$this->db->update('the_stock');
 		
 	}
+	
+	function stock_back_in($part_number,$stock_total)
+	{
+		$this->db->where('part_number',$part_number);
+		$query=$this->db->get('the_stock');
+		$total=$query->num_rows;
+		$row=$query->row();
+		
+			$current_stock=$row->stock_total;
+			$new_stock=$current_stock+$stock_total;
+			$this->db->set('stock_total',$new_stock);
+			$this->db->where('part_number',$part_number);
+			
+			$this->db->update('the_stock');
+	}
 }

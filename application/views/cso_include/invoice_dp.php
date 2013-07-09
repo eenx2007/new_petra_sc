@@ -36,6 +36,7 @@ div.Section1 { page:Section1; }
 	<tr><td colspan="2">Invoice Number I-<?php echo $proposal_id;?> / <?php echo date('d-m-Y');?><input type="hidden" id="proposal_id_hidden" value="<?php echo $proposal_id;?>" /></td></tr>
     <tr><td>Kepada YTH</td><td>: <?php echo $rowcustomer->customer_name;?></td></tr>
     <tr><td></td><td>: <?php echo $rowcustomer->customer_address;?></td></tr>
+    <tr><td></td><td>: <?php echo $rowcustomer->customer_phone;?></td></tr>
 </table>
 
 <table style="width:100%;">
