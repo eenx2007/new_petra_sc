@@ -156,4 +156,11 @@ class Part_request_model extends CI_Model {
 		$query=$this->db->get('part_request');
 		return $query->result();	
 	}
+	
+	function cancel_request($part_request_id)
+	{
+		$this->db->set('request_status',9);
+		$this->db->where('part_request_id',$part_request_id);
+		$this->db->update('part_request');
+	}
 }

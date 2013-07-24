@@ -12,6 +12,19 @@
 			}
 		);
 		
+		$('.cancel_request').click(function(){
+			p_id=$(this).attr('idnya');
+			$.post('<?php echo site_url('whpanels/part_control/cancel_request');?>',
+				{
+					part_request_id:p_id
+				},
+				function(data)
+				{
+					$('#need_to_be_issued').load('<?php echo site_url('wh_panel/need_to_be_issued');?>');
+				}
+			);
+		});
+		
     });
 </script>
 
@@ -28,7 +41,7 @@
             <td><?php echo $rows->bad_part_sn;?></td>
             <td><?php echo $rows->sure_name;?></td>
             <td><?php echo $rows->case_id;?></td>
-            <td><button class="done_in_css">OK</button></td>
+            <td><button class="cancel_request" idnya="<?php echo $rows->part_request_id;?>">Cancel</button></td>
         </tr>
     <?php endforeach;?>
     </tbody>

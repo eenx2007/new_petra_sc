@@ -193,7 +193,7 @@ class Global_model extends CI_Model {
 		 return $this->Terbilang($satuan / 10)." puluh".  
 		 $this->Terbilang($satuan % 10);  
 		elseif ($satuan < 200)  
-		 return "seratus".Terbilang($satuan - 100);  
+		 return "seratus".$this->Terbilang($satuan - 100);  
 		elseif ($satuan < 1000)  
 		 return $this->Terbilang($satuan / 100)." ratus".  
 		 $this->Terbilang($satuan % 100);  

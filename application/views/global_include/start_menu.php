@@ -70,6 +70,7 @@
     <?php echo $this->global_model->menu_item('collection.png','Collection Part',site_url('csos/invoice_control/collection_part'));?>          
     <?php echo $this->global_model->menu_item('consultation.png','Consultation',site_url('csos/case_control/consultation'));?>
     <?php echo $this->global_model->menu_item('part_sale.png','Part Sale',site_url('csos/part_control/part_sale'));?>
+    <?php echo $this->global_model->menu_item('awaiting_part.png','Part Sale Ready',site_url('csos/part_control_part_sale_ready'));?>
     <?php echo $this->global_model->menu_item('pending.png','Pending Quote',site_url('csos/case_control/pending_quotation'));?>
     <?php echo $this->global_model->menu_item('need_to_call.png','Need To Call',site_url('csos/report_control/need_to_call'));?>
     <?php echo $this->global_model->menu_item('today_statistic.png','Statistic',site_url('csos/report_control/today_statistic'));?>

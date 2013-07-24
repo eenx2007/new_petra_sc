@@ -129,6 +129,11 @@ class Part_control extends CI_Controller {
 		
 		
 		$this->the_part_model->stock_out($this->input->post('part_released'),'8001',1);
-	}	
+	}
+	
+	function cancel_request()
+	{
+		$this->part_request_model->cancel_request($this->input->post('part_request_id'));
+	}
 	
 }
