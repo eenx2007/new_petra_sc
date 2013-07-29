@@ -177,7 +177,7 @@
 			if(detik<10)
 				detik="0"+detik;
 			$('#jam_utama').html(jam+':'+menit+':'+detik);
-			if(detik%5==0)
+			if(menit%10==0)
 			{
 				$('#cover-background').hide();
 				var bgimage = new Image();      
