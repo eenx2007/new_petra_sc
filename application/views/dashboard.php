@@ -58,6 +58,8 @@
 		$('.over_screen').hide();
 		$('#blockout').width(lebar);
 		$('#blockout').height(tinggi);
+		$("#cover-background").width(lebar);
+		$('#cover-background').height(tinggi);
 		$('#dashboard_thing').hide();
 		$('.bodyall').height(tinggi-85);
 		$('.bodyall').width(lebar-50);
@@ -77,6 +79,7 @@
 		$('.toppane').css('top',25);
 		$('.toppane').css('left',25);
 		
+		$('#cover-background').hide();
 		lebar_menu=$('.bodyall').width()/8;
 		tinggi_menu=$('.bodyall').height()/5;
 		$('.the_scroller').draggable({ axis: 'y',containment: 'parent',
@@ -174,7 +177,18 @@
 			if(detik<10)
 				detik="0"+detik;
 			$('#jam_utama').html(jam+':'+menit+':'+detik);
-			
+			if(detik%5==0)
+			{
+				$('#cover-background').hide();
+				var bgimage = new Image();      
+							var randomNum = Math.floor(Math.random() * 4)+1;
+							bgimage.src="./assets/wallpaper/"+randomNum+".jpg";       
+						
+							$(bgimage).load(function(){
+								$("#cover-background").css("background-image","url("+$(this).attr("src")+")").fadeIn('slow');  
+								$("#cover-background").css("background-size",lebar+"px");               
+							});
+			}
 		},1000);
 		
 		$(document).ajaxStart(function() {
@@ -230,4 +244,5 @@
 		
 	</div>
     <div id="blockout"></div>
+    <div id="cover-background"></div>
 </html>

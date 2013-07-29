@@ -1,8 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
 
-body{background: url(images/wallpp.jpg) no-repeat top left #FFF;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;font-size:12px;}
-
+body{background:#001940;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;font-size:12px;}
+#cover-background{position:fixed;z-index:-10;}
 @font-face {
     font-family: '7segment';
     src: url('7_segment-webfont.eot');
@@ -72,7 +72,7 @@ select{border:1px solid #FFF;width:90%;font-size:11px;padding-left:5px;}
 #dashboard_thing{position:fixed;overflow:auto;z-index:10001;}
 #blockout{opacity:0.5;z-index:10002;display:none;background:url(images/block_bg.png);}
 .dashboard_item{background:url(images/menu_bg.png) repeat-y left #003D9D;border:3px solid #1A51A7;}
-.dashboard_item_title{padding:10px;color:#FFF;border-bottom:3px solid #1A51A7;}
+.dashboard_item_title{padding:10px;color:#FFF;border-bottom:3px solid #1A51A7;background:#00327F}
 .dashboard_item_content{padding-top:10px;background:url(images/menu_bg.png) repeat-y left #003D9D;color:#FFF;}
 
 #super_menu{padding:10px;position:fixed;bottom:0px;left:-185px;z-index:10001;}
@@ -94,13 +94,13 @@ select{border:1px solid #FFF;width:90%;font-size:11px;padding-left:5px;}
 a {color:#FFF;}
 .small {font-size:9px;}
 /*tabs*/
-.tabbed_area {border:3px solid #1A51A7;background-color:#240079;padding:8px;overflow:auto;float:left;}
+.tabbed_area {border:3px solid #1A51A7;background:url(images/menu_bg.png) repeat-y left #003D9D;padding:8px;overflow:auto;float:left;}
 ul.tabs {margin:0px; padding:0px;margin-top:5px;margin-bottom:6px;}  
 ul.tabs li {list-style:none;display:inline;}
 ul.tabs li a {background-color:#1A51A7;color:#ffebb5;padding:8px 14px 8px 14px;text-decoration:none;font-size:9px;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:bold;text-transform:uppercase;}  
-ul.tabs li a:hover {background-color:#25007D;border-color:#25007D;}  
-ul.tabs li a.active {background-color:#25007D;color:#FFF;}
-.content_tab {background-color:#25007D;padding:10px;display:none;} 
+ul.tabs li a:hover {background-color:#00327F;border-color:#00327F;}  
+ul.tabs li a.active {background-color:#00327F;color:#FFF;}
+.content_tab {background:url(images/menu_bg.png) repeat-y left #003D9D;padding:10px;display:none;} 
 
 #ui-datepicker-div { display: none; }
 

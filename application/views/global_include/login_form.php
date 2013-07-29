@@ -39,6 +39,14 @@
 							sess_user_id=data.user_id;
 							sess_sure_name=data.sure_name;
 							sess_user_type=data.user_type;
+							var bgimage = new Image();      
+							var randomNum = Math.floor(Math.random() * 4)+1;
+							bgimage.src="./assets/wallpaper/"+randomNum+".jpg";       
+						
+							$(bgimage).load(function(){
+								$("#cover-background").css("background-image","url("+$(this).attr("src")+")").fadeIn('slow');  
+								$("#cover-background").css("background-size",lebar+"px");               
+							});
 						}
 						else
 						{
@@ -75,6 +83,7 @@
 					$('#sure_name').attr('idnya',data.user_id);
 					$('#user_type').text(data.user_type);
 					$('#user_image').attr('src',data.user_image);
+					
 				},
 				'json'
 			);
