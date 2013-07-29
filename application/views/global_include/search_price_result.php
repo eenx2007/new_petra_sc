@@ -1,10 +1,10 @@
 <script type="text/javascript">
 	$(document).ready(function(){
-		detail_price=$('<div class="detail_price" style="display:none;"></div>').css('background-color','#25007D').css('padding','10px').css('border','3px solid #502FBD').css('position','absolute');
+		detail_price=$('<div class="detail_price" style="display:none;"></div>').css('background-color','#25007D').css('padding','10px').css('border','3px solid #1A51A7').css('position','absolute');
 		$('.list_nya').css('background-color','#F4F4F4');
 		$('#price_list_result_table td').css('color','#25007D');
-		$('#price_list_result_table td').css('border-bottom','1px dotted #502FBD');
-		$('#price_list_result_table th').css('border-bottom','1px solid #502FBD');
+		$('#price_list_result_table td').css('border-bottom','1px dotted #1A51A7');
+		$('#price_list_result_table th').css('border-bottom','1px solid #1A51A7');
 		$('.list_group').css('background-color','#019DC3');
 		$('.list_group td').css('color','#FFF');
 		$('.list_nya').css('cursor','pointer');

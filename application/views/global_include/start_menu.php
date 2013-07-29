@@ -100,7 +100,7 @@
 <?php elseif($this->session->userdata('user_type')==5): ?>
 	<?php echo $this->global_model->menu_item('new_case.png','Assigning',site_url('adminpanels/case_control/case_today'));?>
 	<?php echo $this->global_model->menu_item('update_case.png','Update Case',site_url('qcpanels/case_control/update_case'));?>
-    <?php echo $this->global_model->menu_item('under_testing.png','Under Testing',site_url('qc_panel/under_testing_case'));?>
+    
     <?php echo $this->global_model->menu_item('pending.png','Pending!',site_url('adminpanels/case_control/pending_management'));?>
 <?php elseif($this->session->userdata('user_type')==0): ?>
 	

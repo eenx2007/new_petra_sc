@@ -79,7 +79,7 @@
     </div>
 
 
-<div id="case_detail" style="position:fixed;background:#240079;overflow:auto;border:3px solid #502FBD;">
+<div id="case_detail" style="position:fixed;background:#240079;overflow:auto;border:3px solid #1A51A7;">
 	
 </div>
 <script type="text/javascript">
