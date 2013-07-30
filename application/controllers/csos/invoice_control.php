@@ -2,6 +2,16 @@
 
 class Invoice_control extends CI_Controller {
 
+	function check_invoice()
+	{
+		$proposal_id=$this->input->post('case_id');
+		$result=$this->proposal_model->get_by_id($case_id);
+		if($result==0)
+			echo 0;
+		else
+			echo 1;	
+	}
+
 	function generate_invoice($case_id)
 	{
 		$check_proposal=$this->proposal_model->get_by_id($case_id);

@@ -111,8 +111,9 @@
     <div id="tabsnya" class="tabbed_area" style="width:90%;">
     	<ul class="tabs">
         	<li><a href="javascript:void(0);" gototab="#case_detail_tab" class="tab active">Detail</a></li>
-            <li><a href="javascript:void(0);" gototab="#part_in_case_tab" class="tab">Used Part</a></li>
+            
             <li><a href="javascript:void(0);" gototab="#create_proposal_tab" class="tab">Proposal</a></li>
+            <li><a href="javascript:void(0);" gototab="#part_in_case_tab" class="tab">Used Part</a></li>
             <li><a href="javascript:void(0);" gototab="#log_info_tab" class="tab">Log Info</a></li>
             <li><a href="javascript:void(0);" gototab="#force_update" class="tab">Change Status</a></li>
         </ul>

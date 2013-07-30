@@ -8,7 +8,7 @@
 			content_show=$(this).attr("gototab");
 			$(content_show).show();
 		});
-		
+		$('#generate_invoice').hide();
 		$('#search_case').click(function(){
 			c_id=$('#case_id').val();
 			$.post('<?php echo site_url('engineers/case_control/search_case');?>',
@@ -121,6 +121,28 @@
 			back_to_dashboard();
 		});
 		
+		$('#check_invoice').click(function(){
+			c_id=$('#case_id_text').val();
+			$.post('<?php echo site_url('csos/invoice_control/check_invoice');?>',
+				{
+					case_id:c_id
+				},
+				function(data)
+				{
+					if(data==0)
+					{
+						alert('No Invoice for this case');
+						
+					}
+					else
+					{
+						$(this).hide();
+						$('#generate_invoice').show();	
+					}
+				}
+			);
+		});
+		
 		$('#generate_invoice').click(function(){
 			c_id=$('#case_id_text').val();
 			$('#invoice_tab').load('<?php echo site_url('csos/invoice_control/generate_invoice');?>/'+c_id+'/'+sess_user_id);
@@ -209,6 +231,7 @@
         	
         </div>
         <div id="invoice_tab" class="content_tab">
+        	<button id="check_invoice">Check Invoice</button>
         	<button id="generate_invoice">Generate Invoice</button>
         </div>
         <div id="log_info_tab" class="content_tab">

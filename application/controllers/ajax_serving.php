@@ -109,6 +109,7 @@ class Ajax_serving extends CI_Controller {
 			}
 			if($adakembali>0)
 			{
+				$kembali['ada_kembali']=$adakembali;
 				echo json_encode($kembali);
 				break;	
 			}

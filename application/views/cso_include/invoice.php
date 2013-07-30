@@ -47,7 +47,7 @@ div.Section1 { page:Section1; }
     <?php endforeach;?>
     <?php 
 		foreach($query2 as $rows2): $i++;?>
-    <tr><td><?php echo $i;?></td><td><?php echo $rows2->det_value;?></td><td><?php echo $rows2->part_name;?></td><td><div align="right"><?php echo number_format($rows2->det_price,0,',','.');?></div></td></tr>   
+    <tr><td><?php echo $i;?></td><td><?php echo $rows2->det_value;?></td><td><?php echo $rows2->part_name;?> <?php echo $row->unit_type;?></td><td><div align="right"><?php echo number_format($rows2->det_price,0,',','.');?></div></td></tr>   
     <?php $total_price=$total_price+$rows2->det_price;?>    
     <?php endforeach;?>
     <tr><td colspan="4" style="border-bottom:1px solid #000;"></td></tr>
